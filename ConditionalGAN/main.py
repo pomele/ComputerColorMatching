@@ -4,6 +4,8 @@ import numpy as np
 # import matplotlib.pyplot as plt
 from models.G_D import Generator, Discriminator
 import data
+import dataset
+from dataset.ReadFileDataSet import ReadFileDataSet
 from tools.AverageMeter import AverageMeter
 # from IPython import embed
 import torch.nn.functional as F
@@ -19,37 +21,12 @@ SOURCE_COLOR_NUM = 2
 ONE_D_N_G = 1
 N_EPOCHS = 100
 PAINT_POINTS = np.vstack([np.linspace(-1, 1, KM_COMPONENTS) for _ in range(BATCH_SIZE)])
-
-
-def km_works_with_labels():  # K-M data (real target)
-    optical_model = 'km'  # the optical model to use
-    sigma = 0.2  # the noise std
-    ydim = 31  # number of data samples
-    bound = [0., 1., 0., 1.]  # effective bound for likelihood
-    seed = 1  # seed for generating data
-
-    # generate data
-    concentrations, reflectance, x = data.generate(
-        model=optical_model,
-        tot_dataset_size=BATCH_SIZE,
-        ydim=ydim,
-        sigma=sigma,
-        prior_bound=bound,
-        seed=seed
-    )
-    # print(concentrations.shape, reflectance.shape,x.shape)
-    # colormatching = torch.cat(concentrations, reflectance, x)
-    # # label  wrong
-    # label = torch.from_numpy(colormatching.astype(np.float32))
-    colormatching = concentrations  # size is BATCH_SIZE*31
-    label = reflectance  # size is BATCH_SIZE*2
-    # print(colormatching)
-    return colormatching, label
+TRAIN_DATA_FILE = 'colordata.txt'  # 改成你的数据文件的路径
 
 
 def main():
-    G = Generator(N_IDEAS=N_IDEAS, SOURCE_COLOR_NUM=SOURCE_COLOR_NUM)
 
+    G = Generator(N_IDEAS=N_IDEAS, SOURCE_COLOR_NUM=SOURCE_COLOR_NUM)
     D = Discriminator(SOURCE_COLOR_NUM=SOURCE_COLOR_NUM)
 
     opt_D = torch.optim.Adam(D.parameters(), lr=LR_D)
@@ -57,9 +34,11 @@ def main():
 
     criterion = nn.CrossEntropyLoss().to(device)
 
-    for i in range(N_EPOCHS):
-        train(model_G=G, model_D=D, criterion=criterion, opt_G=opt_G, opt_D=opt_D)
+    train_dataset = ReadFileDataSet(file_path=TRAIN_DATA_FILE)
+    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=4)
 
+    for i in range(N_EPOCHS):
+        train(data_loader=train_loader, model_G=G, model_D=D, criterion=criterion, opt_G=opt_G, opt_D=opt_D)
     # plt.ion()  # something about continuous plotting
     # plt.ioff()
     # plt.show()
@@ -79,7 +58,7 @@ def main():
     # plt.show()
 
 
-def train(model_G, model_D, criterion, opt_G, opt_D):
+def train(data_loader, model_G, model_D, criterion, opt_G, opt_D):
     # 如何生成某一种颜色的配方，这个是完全随便生成，包括P目标和P颜料
     # label应该是p目标
     # colormatching应该是浓度
@@ -89,8 +68,8 @@ def train(model_G, model_D, criterion, opt_G, opt_D):
     D_fake_loss = AverageMeter()      # 初始化为0
     D_real_loss = AverageMeter()
     G_loss = AverageMeter()
-    for step in range(10000):
-        colormatching, labels = km_works_with_labels()  # from K-M
+    for i, (labels, color_match) in enumerate(data_loader):
+        # color_match, labels = km_works_with_labels()  # from K-M
         G_ideas = torch.randn(BATCH_SIZE, N_IDEAS)  # random ideas
         G_inputs = torch.cat((G_ideas, labels), dim=1)  # ideas with labels size is batchsize*(31+5)
 
@@ -104,7 +83,7 @@ def train(model_G, model_D, criterion, opt_G, opt_D):
         fake_gt = torch.zeros(BATCH_SIZE).fill_(1).long()
         errD_fake = criterion(prob_matching1, fake_gt)
 
-        D_inputs0 = torch.cat((colormatching, labels), dim=1)  # all have their labels
+        D_inputs0 = torch.cat((color_match, labels), dim=1)  # all have their labels
         prob_matching0 = model_D(D_inputs0)  # D try to increase this prob
         real_gt = torch.zeros(BATCH_SIZE).long()
         errD_real = criterion(prob_matching0, real_gt)

@@ -25,6 +25,13 @@ optical_relevant = np.array([[0.136, 0.667, 1.644, 2.348, 3.463, 3.733, 3.065, 1
                               0.000, 0.000, 0.000, 0.000, 0.000, 0.000]])
 perfect_white = np.array([[94.83], [100.00], [107.38]])
 
+COLOR_DATA = 3
+OPTICAL_MODEL = 'km'
+BATCH_SIZE = 64
+SIGMA = 0.2  # the noise std
+YDIM = 31  # number of data samples
+BOUND = [0., 1., 0., 1.]  # effective bound for likelihood
+SEED = 1  # seed for generating data
 
 def generate(tot_dataset_size, model='km', ydim=31, sigma=0.1, prior_bound=[0, 1, 0, 1], seed=0):
     np.random.seed(seed)
@@ -129,3 +136,47 @@ def xyz2lab(xyz):
         lab[2] = (xyz[1] / perfect_white[1] - xyz[2] / perfect_white[2]) * 1557.4
 
     return lab
+
+def print_Tensor_encoded(self, epoch, i, tensors):
+    message = '(epoch: %d, iters: %d)' % (epoch, i)
+    for k, v in tensors.items():
+        with open(self.log_tensor_name, "a") as log_file:
+            v_cpu = v.cpu()
+            log_file.write('%s: ' % message)
+            np.savetxt(log_file, v_cpu.detach().numpy())
+
+if __name__ == "__main__":
+    train_data = []
+    for i in range(COLOR_DATA):
+        concentrations, reflectance, x = generate(
+            model=OPTICAL_MODEL,
+            tot_dataset_size=BATCH_SIZE,
+            ydim=YDIM,
+            sigma=SIGMA,
+            prior_bound=BOUND,
+            seed=SEED
+        )
+        # print(concentrations.shape)
+        # print(reflectance.shape)
+        # print(x.shape)
+        one_data = torch.cat([reflectance, concentrations], dim=1)
+        # print(one_data)
+        # torch.save(one_data, 'colordata.csv')
+
+        print(one_data.shape)
+        for row in one_data:
+            one_data_str = ""
+            value = ''
+            for val in row:
+                value = str(val.item())
+                one_data_str +=(value + ',')
+            one_data_str = one_data_str[:-1]
+            print(one_data_str)
+            train_data.append(one_data_str)
+
+    print(len(train_data))
+    with open('colordata.txt', 'w') as f:
+        for line in train_data:
+            f.writelines(line + "\n")
+
+

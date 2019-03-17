@@ -9,9 +9,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 from time import time
-
-from FrEIA.framework import InputNode, OutputNode, Node, ReversibleGraphNet
-from FrEIA.modules import rev_multiplicative_layer, F_fully_connected
+from datagen import MyDataset
 
 import data
 
