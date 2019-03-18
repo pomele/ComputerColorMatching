@@ -25,7 +25,8 @@ optical_relevant = np.array([[0.136, 0.667, 1.644, 2.348, 3.463, 3.733, 3.065, 1
                               0.000, 0.000, 0.000, 0.000, 0.000, 0.000]])
 perfect_white = np.array([[94.83], [100.00], [107.38]])
 
-COLOR_DATA = 1
+TRAIN_DATA = 200
+VALIDATE_DATA = 2
 OPTICAL_MODEL = 'km'
 BATCH_SIZE = 64
 SIGMA = 0.2  # the noise std
@@ -146,9 +147,9 @@ def print_Tensor_encoded(self, epoch, i, tensors):
             log_file.write('%s: ' % message)
             np.savetxt(log_file, v_cpu.detach().numpy())
 
-if __name__ == "__main__":
+def generate_train_file():
     train_data = []
-    for i in range(COLOR_DATA):
+    for i in range(TRAIN_DATA):
         concentrations, reflectance, x = generate(
             model=OPTICAL_MODEL,
             tot_dataset_size=BATCH_SIZE,
@@ -157,12 +158,7 @@ if __name__ == "__main__":
             prior_bound=BOUND,
             seed=SEED
         )
-        # print(concentrations.shape)
-        # print(reflectance.shape)
-        # print(x.shape)
         one_data = torch.cat([reflectance, concentrations], dim=1)
-        # print(one_data)
-        # torch.save(one_data, 'colordata.csv')
 
         print(one_data.shape)
         for row in one_data:
@@ -170,7 +166,7 @@ if __name__ == "__main__":
             value = ''
             for val in row:
                 value = str(val.item())
-                one_data_str +=(value + ',')
+                one_data_str += (value + ',')
             one_data_str = one_data_str[:-1]
             print(one_data_str)
             train_data.append(one_data_str)
@@ -179,5 +175,40 @@ if __name__ == "__main__":
     with open('colordata.txt', 'w') as f:
         for line in train_data:
             f.writelines(line + "\n")
+
+def generate_validate_file():
+    validate_data = []
+    for i in range(VALIDATE_DATA):
+        concentrations, reflectance, x = generate(
+            model=OPTICAL_MODEL,
+            tot_dataset_size=BATCH_SIZE,
+            ydim=YDIM,
+            sigma=SIGMA,
+            prior_bound=BOUND,
+            seed=SEED
+        )
+        one_data = torch.cat([reflectance, concentrations], dim=1)
+
+        print(one_data.shape)
+        for row in one_data:
+            one_data_str = ""
+            value = ''
+            for val in row:
+                value = str(val.item())
+                one_data_str += (value + ',')
+            one_data_str = one_data_str[:-1]
+            print(one_data_str)
+            validate_data.append(one_data_str)
+
+    print(len(validate_data))
+    with open('valcolordata.txt', 'w') as f:
+        for line in validate_data:
+            f.writelines(line + "\n")
+
+if __name__ == "__main__":
+
+    generate_train_file()
+    generate_validate_file()
+
 
 
