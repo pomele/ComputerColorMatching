@@ -21,8 +21,10 @@ SOURCE_COLOR_NUM = 2
 ONE_D_N_G = 1
 N_EPOCHS = 100
 PAINT_POINTS = np.vstack([np.linspace(-1, 1, KM_COMPONENTS) for _ in range(BATCH_SIZE)])
-TRAIN_DATA_FILE = 'colordata.txt'  # 改成你的数据文件的路径
+TRAIN_DATA_FILE = 'colordata.txt'  # 训练数据文件的路径
+VAL_DATA_FILE = 'valcolordata.txt'  # 验证集数据文件的路径
 
+VALIDATE = 1
 
 def main():
 
@@ -37,29 +39,14 @@ def main():
     train_dataset = ReadFileDataSet(file_path=TRAIN_DATA_FILE)
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=4)
 
+    # val_dataset = ReadFileDataSet(file_path=VAL_DATA_FILE)
     for i in range(N_EPOCHS):
         train(data_loader=train_loader, model_G=G, model_D=D, criterion=criterion, opt_G=opt_G, opt_D=opt_D)
-    # plt.ion()  # something about continuous plotting
-    # plt.ioff()
-    # plt.show()
-    #
-    # # plot a generated painting for upper class
-    # z = torch.randn(1, N_IDEAS)
-    # label = torch.FloatTensor([[1.]])  # for upper class
-    # G_inputs = torch.cat((z, label), 1)
-    # G_paintings = G(G_inputs)
-    # plt.plot(PAINT_POINTS[0], G_paintings.data.numpy()[0], c='#4AD631', lw=3, label='G painting for upper class', )
-    # plt.plot(PAINT_POINTS[0], 2 * np.power(PAINT_POINTS[0], 2) + bound[1], c='#74BCFF', lw=3,
-    #          label='upper bound (class 1)')
-    # plt.plot(PAINT_POINTS[0], 1 * np.power(PAINT_POINTS[0], 2) + bound[0], c='#FF9359', lw=3,
-    #          label='lower bound (class 1)')
-    # plt.ylim((0, 3));
-    # plt.legend(loc='upper right', fontsize=10);
-    # plt.show()
+        # if VALIDATE:
+        #     validate(data_loader=val_loader, model_G=G, model_D=D, criterion=criterion, opt_G=opt_G, opt_D=opt_D)
 
 
 def train(data_loader, model_G, model_D, criterion, opt_G, opt_D):
-    # 如何生成某一种颜色的配方，这个是完全随便生成，包括P目标和P颜料
     # label应该是p目标
     # colormatching应该是浓度
     model_G.train()
@@ -69,8 +56,8 @@ def train(data_loader, model_G, model_D, criterion, opt_G, opt_D):
     D_real_loss = AverageMeter()
     G_loss = AverageMeter()
     for i, (labels, color_match) in enumerate(data_loader):
-        # color_match, labels = km_works_with_labels()  # from K-M
-        G_ideas = torch.randn(BATCH_SIZE, N_IDEAS)  # random ideas
+
+        G_ideas = torch.randn(BATCH_SIZE, N_IDEAS)      # G_ideas is noise , random ideas
         G_inputs = torch.cat((G_ideas, labels), dim=1)  # ideas with labels size is batchsize*(31+5)
 
         ############################
@@ -78,7 +65,7 @@ def train(data_loader, model_G, model_D, criterion, opt_G, opt_D):
         ###########################
 
         G_matching = model_G(G_inputs)  # fake from newbie w.r.t label from G
-        D_inputs1 = torch.cat((F.sigmoid(G_matching), labels), dim=1)
+        D_inputs1 = torch.cat((torch.sigmoid(G_matching), labels), dim=1)
         prob_matching1 = model_D(D_inputs1)  # D try to reduce this prob
         fake_gt = torch.zeros(BATCH_SIZE).fill_(1).long()
         errD_fake = criterion(prob_matching1, fake_gt)
@@ -111,22 +98,33 @@ def train(data_loader, model_G, model_D, criterion, opt_G, opt_D):
         print('D_fake_loss=%.3f(%.3f) \t D_real_loss=%.3f(%.3f) \t G_loss=%.3f(%.3f)' % (
         D_fake_loss.val, D_fake_loss.avg, D_real_loss.val, D_real_loss.avg, G_loss.val, G_loss.avg))
 
-        # if step % 50 == 0:  # plotting
-        #     plt.cla()
-        #     plt.plot(PAINT_POINTS[0], G_matching.data.numpy()[0], c='#4AD631', lw=3, label='Generated painting', )
-        #     bound = [0, 0.5] if labels.data[0, 0] == 0 else [0.5, 1]
-        #     plt.plot(PAINT_POINTS[0], 2 * np.power(PAINT_POINTS[0], 2) + bound[1], c='#74BCFF', lw=3,
-        #              label='upper bound')
-        #     plt.plot(PAINT_POINTS[0], 1 * np.power(PAINT_POINTS[0], 2) + bound[0], c='#FF9359', lw=3,
-        #              label='lower bound')
-        #     plt.text(-.5, 2.3, 'D accuracy=%.2f (0.5 for D to converge)' % prob_matching0.data.numpy().mean(),
-        #              fontdict={'size': 13})
-        #     plt.text(-.5, 2, 'D score= %.2f (-1.38 for G to converge)' % -D_loss.data.numpy(), fontdict={'size': 13})
-        #     plt.text(-.5, 1.7, 'Class = %i' % int(labels.data[0, 0]), fontdict={'size': 13})
-        #     plt.ylim((0, 3));
-        #     plt.legend(loc='upper right', fontsize=10);
-        #     plt.draw();
-        #     plt.pause(0.1)
+
+        cal_diff(G_matching.detach().numpy(), labels.detach().numpy())
+
+
+def validate(val_loader, model_G, model_D, criterion, opt_G, opt_D):
+    print('validate')
+
+
+
+
+
+def cal_diff(concentration, reflectance):
+    # the first data -> plot
+    # data -> reflectance
+    # plot
+    print(concentration.shape)
+    print(reflectance.shape)
+    Ngrid = 64
+    optical_model = "km"
+    sigma = 0.2  # the noise std
+    bound = [0., 1., 0., 1.]  # effective bound for likelihood
+
+    temp = data.get_lik(concentration, reflectance, n_grid=Ngrid, model=optical_model,
+                        sigma=sigma, xvec=None, bound=bound)
+    print('++++++++++++++++++++++色差++++++++++++++++++++++++++++++')
+    print(temp)
+    print('----------------------色差------------------------------')
 
 
 if __name__ == "__main__":

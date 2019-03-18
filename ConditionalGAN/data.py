@@ -25,7 +25,7 @@ optical_relevant = np.array([[0.136, 0.667, 1.644, 2.348, 3.463, 3.733, 3.065, 1
                               0.000, 0.000, 0.000, 0.000, 0.000, 0.000]])
 perfect_white = np.array([[94.83], [100.00], [107.38]])
 
-COLOR_DATA = 3
+COLOR_DATA = 1
 OPTICAL_MODEL = 'km'
 BATCH_SIZE = 64
 SIGMA = 0.2  # the noise std
@@ -70,24 +70,25 @@ def generate(tot_dataset_size, model='km', ydim=31, sigma=0.1, prior_bound=[0, 1
     return concentrations, reflectance, xvec
 
 
-def get_lik(ydata, n_grid=64, model='km', sigma=None, xvec=None, bound=[0, 1, 0, 1]):
-    mcx = np.linspace(bound[0], bound[1], n_grid)
-    mcy = np.linspace(bound[2], bound[3], n_grid)
-    dmcx = mcx[1] - mcx[0]
-    dmcy = mcy[1] - mcy[0]
+def get_lik(concentration, reflectance, n_grid=64, model='km', sigma=None, xvec=None, bound=[0, 1, 0, 1]):
+    # mcx = np.linspace(bound[0], bound[1], n_grid)
+    # mcy = np.linspace(bound[2], bound[3], n_grid)
+    # dmcx = mcx[1] - mcx[0]
+    # dmcy = mcy[1] - mcy[0]
 
     init_conc_array = initial_concentration.repeat(ingredients.shape[1]).reshape(2, -1)
+    print('init_conc_arrayinit_conc_arrayinit_conc_arrayinit_conc_arrayinit_conc_arrayinit_conc_arrayinit_conc_array')
+    print(init_conc_array)
 
-    diff = np.zeros((n_grid, n_grid))
+    diff = np.zeros(n_grid)
     if model == 'km':
         fsb = (np.ones_like(background) - background) ** 2 / (background * 2)
         fst = ((np.ones_like(ingredients) - ingredients) ** 2 / (ingredients * 2) - fsb) / init_conc_array
 
-        for i, c in enumerate(mcy):
-            fss = np.array(
-                [A * fst[0] + c * fst[1] + fsb for A in mcx])
-            # diff[i, :] = np.array([np.sum(((ydata - (p - ((p + 1) ** 2 - 1) ** 0.5 + 1)) / sigma) ** 2) for p in fss])
-            diff[i, :] = np.array([color_diff(ydata, p - ((p + 1) ** 2 - 1) ** 0.5 + 1) for p in fss])
+        for i, c in enumerate(concentration):
+            fss = c[0] * fst[0] + c[1] * fst[1] + fsb
+            # diff[i, :] = np.array([np.sum(((reflectance - (p - ((p + 1) ** 2 - 1) ** 0.5 + 1)) / sigma) ** 2) for p in fss])
+            diff[i] = color_diff(reflectance[i], fss - ((fss + 1) ** 2 - 1) ** 0.5 + 1)
         # diff = np.exp(-0.5 * diff)
 
     elif model == 'four_flux':
@@ -98,16 +99,16 @@ def get_lik(ydata, n_grid=64, model='km', sigma=None, xvec=None, bound=[0, 1, 0,
         print('Sorry no model of that name')
         exit(1)
 
-    # normalise the posterior
-    diff /= (np.sum(diff.flatten()) * dmcx * dmcy)
-
-    # compute integrated probability outwards from max point
-    diff = diff.flatten()
-    idx = np.argsort(diff)[::-1]
-    prob = np.zeros(n_grid * n_grid)
-    prob[idx] = np.cumsum(diff[idx]) * dmcx * dmcy
-    prob = prob.reshape(n_grid, n_grid)
-    return mcx, mcy, prob
+    # # normalise the posterior
+    # diff /= (np.sum(diff.flatten()) * dmcx * dmcy)
+    #
+    # # compute integrated probability outwards from max point
+    # diff = diff.flatten()
+    # idx = np.argsort(diff)[::-1]
+    # prob = np.zeros(n_grid * n_grid)
+    # prob[idx] = np.cumsum(diff[idx]) * dmcx * dmcy
+    # prob = prob.reshape(n_grid, n_grid)
+    return diff
 
 
 def color_diff(reflectance1, reflectance2):
