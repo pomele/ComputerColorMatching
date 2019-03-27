@@ -9,6 +9,8 @@ from dataset.ReadFileDataSet import ReadFileDataSet
 from tools.AverageMeter import AverageMeter
 # from IPython import embed
 import torch.nn.functional as F
+import matplotlib.pyplot as plt
+
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 # Hyper Parameters
@@ -17,7 +19,7 @@ LR_G = 0.0001  # learning rate for generator
 LR_D = 0.0001  # learning rate for discriminator
 N_IDEAS = 5  # think of this as number of ideas for generating work (Generator)
 KM_COMPONENTS = 15  # it could be total point G can draw in the canvas
-SOURCE_COLOR_NUM = 2
+SOURCE_COLOR_NUM = 5
 ONE_D_N_G = 1
 N_EPOCHS = 100
 PAINT_POINTS = np.vstack([np.linspace(-1, 1, KM_COMPONENTS) for _ in range(BATCH_SIZE)])
@@ -25,6 +27,8 @@ TRAIN_DATA_FILE = 'colordata.txt'  # 训练数据文件的路径
 VAL_DATA_FILE = 'valcolordata.txt'  # 验证集数据文件的路径
 
 VALIDATE = 1
+
+
 
 def main():
 
@@ -113,6 +117,12 @@ def validate(data_loader, model_G, model_D, criterion):
     D_real_loss = AverageMeter()
     G_loss = AverageMeter()
 
+    D_fake_epoch = []
+    D_real_epoch = []
+    G_loss_epoch = []
+    diff = []
+
+
     with torch.no_grad():
         for i, (labels, color_match) in enumerate(data_loader):
 
@@ -153,7 +163,34 @@ def validate(data_loader, model_G, model_D, criterion):
             print('validate:    ' + 'D_fake_loss=%.3f(%.3f) \t D_real_loss=%.3f(%.3f) \t G_loss=%.3f(%.3f)' % (
                 D_fake_loss.val, D_fake_loss.avg, D_real_loss.val, D_real_loss.avg, G_loss.val, G_loss.avg))
 
-            cal_diff(G_matching.detach().numpy(), labels.detach().numpy())
+            D_fake_epoch.append(D_fake_loss.val)
+            D_real_epoch.append(D_real_loss.val)
+            G_loss_epoch.append(G_loss.val)
+
+            color_diff = cal_diff(G_matching.detach().numpy(), labels.detach().numpy())
+            color_diff = np.nanmean(color_diff)
+            diff.append(color_diff)
+
+    # show picture
+    draw_loss(D_fake_epoch, D_real_epoch, G_loss_epoch, diff)
+
+
+def draw_loss(D_fake_epoch, D_real_epoch, G_loss_epoch, diff):
+    x = np.linspace(1, len(D_fake_epoch), len(D_fake_epoch))
+    plt.plot(x, D_fake_epoch)
+    plt.plot(x, D_real_epoch)
+    plt.plot(x, G_loss_epoch)
+
+    # plt.show()
+
+    x1 = np.linspace(1, len(diff), len(diff))
+    print(diff)
+    print('diffdiff')
+    plt.plot(x1, diff)
+    plt.savefig("color_fig", dpi=100)
+    # plt.show()
+
+
 
 
 def cal_diff(concentration, reflectance):
@@ -162,17 +199,27 @@ def cal_diff(concentration, reflectance):
     # plot
     print(concentration.shape)
     print(reflectance.shape)
-    Ngrid = 64
+    Ngrid = BATCH_SIZE
     optical_model = "km"
     sigma = 0.2  # the noise std
     bound = [0., 1., 0., 1.]  # effective bound for likelihood
 
-    temp = data.get_lik(concentration, reflectance, n_grid=Ngrid, model=optical_model,
+    color_diff = data.get_lik(concentration, reflectance, n_grid=Ngrid, model=optical_model,
                         sigma=sigma, xvec=None, bound=bound)
     print('++++++++++++++++++++++色差++++++++++++++++++++++++++++++')
-    print(temp)
-    print('----------------------色差------------------------------')
+    print(color_diff)
 
+    # x = np.linspace(1, 10, 1)
+    # y = np.nanmean(color_diff)
+    # y_diff.append(y)
+    # print(y_diff)
+    # plt.title('color different')
+    # plt.xlabel('x')
+    # plt.ylabel('diff')
+
+    # plt.show()
+    print('----------------------色差------------------------------')
+    return color_diff
 
 if __name__ == "__main__":
     # km_works_with_labels()
