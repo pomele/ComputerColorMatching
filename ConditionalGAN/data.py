@@ -19,23 +19,28 @@ ingredients = np.array([
      0.8914063, 0.9259378, 0.9373208, 0.9417730, 0.9441082, 0.9462348, 0.9473710, 0.9479665, 0.9482779, 0.9480201,
      0.9483707, 0.9478786, 0.9474954, 0.9472089, 0.9468048, 0.9471580, 0.9465347, 0.9441642, 0.9423221, 0.9387001,
      0.9329507],
-    # 08S
-    [0.2712101, 0.3016053, 0.2955334, 0.2895256, 0.2859294, 0.2884298, 0.2914248, 0.2936781, 0.3083987, 0.3733792,
-     0.5332463, 0.7305964, 0.8455071, 0.9001799, 0.9261169, 0.9373263, 0.9413789, 0.9437845, 0.9448064, 0.9448079,
-     0.9450820, 0.9446973, 0.9445449, 0.9442747, 0.9437326, 0.9442004, 0.9438083, 0.9414658, 0.9391597, 0.9355036,
-     0.9289310],
-    # 09B
-    [0.3599522, 0.4651332, 0.4698422, 0.4624575, 0.4524772, 0.4450434, 0.4392531, 0.4362574, 0.4357192, 0.4629371,
-     0.5635376, 0.7249229, 0.8456681, 0.9069895, 0.9324164, 0.9409078, 0.9437131, 0.9453641, 0.9461564, 0.9460989,
-     0.9463242, 0.9454620, 0.9451574, 0.9448677, 0.9443573, 0.9447857, 0.9443947, 0.9421353, 0.9400899, 0.9365174,
-     0.9304954],
+    # 16
+    [0.3582383, 0.4589019, 0.4442960, 0.4180548, 0.3943129, 0.3753622, 0.3580040, 0.3467267, 0.3377595, 0.3309189,
+     0.3229960, 0.3138701, 0.3117055, 0.3117619, 0.3016199, 0.2815702, 0.2676951, 0.2725082, 0.3257494, 0.5337213,
+     0.7479121, 0.8533681, 0.9027772, 0.9256366, 0.9336862, 0.9368781, 0.9375737, 0.9365737, 0.9347985, 0.9322762,
+     0.9260198],
+    # 20A-2
+    [0.3075271, 0.3970215, 0.4258692, 0.4498420, 0.4777384, 0.5187902, 0.5789000, 0.6485421, 0.7203640, 0.7698454,
+     0.7815039, 0.7697773, 0.7418166, 0.7037384, 0.6568713, 0.6019219, 0.5399272, 0.4776893, 0.4137468, 0.3495456,
+     0.2899768, 0.2505462, 0.2324735, 0.2232275, 0.2189511, 0.2174184, 0.2212247, 0.2353665, 0.2580868, 0.2678188,
+     0.2783012],
     # 2704
     [0.3777322, 0.5588190, 0.6166437, 0.6508363, 0.6942729, 0.7478291, 0.7715947, 0.7660858, 0.7381392, 0.6950833,
      0.6416819, 0.5781880, 0.5089610, 0.4370953, 0.3696142, 0.3065603, 0.2513052, 0.2179904, 0.2023969, 0.1957846,
      0.1897067, 0.1847080, 0.1875919, 0.2009600, 0.2232523, 0.2416958, 0.2510498, 0.2490231, 0.2179781, 0.2109241,
-     0.2085472]
+     0.2085472],
+    # 2804
+    [0.3353273, 0.4391780, 0.4634378, 0.4844812, 0.5122489, 0.5352546, 0.5445021, 0.5498481, 0.5548403, 0.5667891,
+     0.5892876, 0.6205880, 0.6589307, 0.7075461, 0.7588425, 0.8063425, 0.8438276, 0.8656531, 0.8760347, 0.8760190,
+     0.8742780, 0.8694988, 0.8650322, 0.8608174, 0.8578521, 0.8574630, 0.8571312, 0.8569201, 0.8584669, 0.8579510,
+     0.8594775]
 ])
-initial_concentration = np.array([0.51, 0.51, 0.51, 0.51, 0.51])
+initial_concentration = np.array([0.51, 0.51, 0.51, 0.51, 0.51, 0.51])
 background = np.array([0.4519, 0.7445, 0.8898, 0.9311, 0.9374, 0.9396, 0.9426, 0.9435, 0.9453, 0.9456, 0.9472, 0.9475,
                        0.9473, 0.9477, 0.9474, 0.9472, 0.9469, 0.9464, 0.9459, 0.945, 0.9446, 0.9434, 0.9428, 0.9422,
                        0.9418, 0.9421, 0.9416, 0.9396, 0.9375, 0.934, 0.9281])
@@ -51,7 +56,7 @@ optical_relevant = np.array([[0.136, 0.667, 1.644, 2.348, 3.463, 3.733, 3.065, 1
                               0.000, 0.000, 0.000, 0.000, 0.000, 0.000]])
 perfect_white = np.array([[94.83], [100.00], [107.38]])
 
-TRAIN_DATA = 200
+TRAIN_DATA = 100
 VALIDATE_DATA = 50
 OPTICAL_MODEL = 'km'
 BATCH_SIZE = 64
@@ -60,24 +65,25 @@ YDIM = 31  # number of data samples
 BOUND = [0., 1., 0., 1.]  # effective bound for likelihood
 SEED = 1  # seed for generating data
 
-def generate(tot_dataset_size, model='km', ydim=31, sigma=0.1, prior_bound=[0, 1, 0, 1, 0, 1, 0, 1, 0, 1], seed=0):
+def generate(tot_dataset_size, model='km', ydim=31, sigma=0.1, prior_bound=[0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1], seed=0):
     np.random.seed(seed)
     N = tot_dataset_size
 
     if model == 'km':
-        concentrations = np.random.uniform(0, 1, size=(N, 5))
+        concentrations = np.random.uniform(0, 1, size=(N, 6))
         # concentrations[:, 0] = prior_bound[0] + (prior_bound[1] - prior_bound[0]) * concentrations[:, 0]
         # concentrations[:, 1] = prior_bound[2] + (prior_bound[3] - prior_bound[2]) * concentrations[:, 1]
         # concentrations[:, 2] = prior_bound[4] + (prior_bound[5] - prior_bound[4]) * concentrations[:, 2]
         # concentrations[:, 3] = prior_bound[6] + (prior_bound[7] - prior_bound[6]) * concentrations[:, 3]
         # concentrations[:, 4] = prior_bound[8] + (prior_bound[9] - prior_bound[8]) * concentrations[:, 4]
+        # concentrations[:, 5] = prior_bound[10] + (prior_bound[11] - prior_bound[10]) * concentrations[:, 5]
         xvec = np.arange(400, 710, (700 - 400) / (ydim - 1))
         xidx = np.arange(0, ydim, 1)
-        init_conc_array = initial_concentration.repeat(ingredients.shape[1]).reshape(5, -1)
+        init_conc_array = initial_concentration.repeat(ingredients.shape[1]).reshape(6, -1)
         fsb = (np.ones_like(background) - background) ** 2 / (background * 2)
         fst = ((np.ones_like(ingredients) - ingredients) ** 2 / (ingredients * 2) - fsb) / init_conc_array
         fss = np.array(
-            [concentrations[:, 0] * fst[0, i] + concentrations[:, 1] * fst[1, i] + concentrations[:, 2] * fst[2, i] + concentrations[:, 3] * fst[3, i] + concentrations[:, 4] * fst[4, i] + np.ones(N) * fsb[i]
+            [concentrations[:, 0] * fst[0, i] + concentrations[:, 1] * fst[1, i] + concentrations[:, 2] * fst[2, i] + concentrations[:, 3] * fst[3, i] + concentrations[:, 4] * fst[4, i] + concentrations[:, 5] * fst[5, i] + np.ones(N) * fsb[i]
              for i in xidx])
 
         reflectance = fss - ((fss + 1) ** 2 - 1) ** 0.5 + 1
@@ -99,15 +105,13 @@ def generate(tot_dataset_size, model='km', ydim=31, sigma=0.1, prior_bound=[0, 1
     return concentrations, reflectance, xvec
 
 
-def get_lik(concentration, reflectance, n_grid=BATCH_SIZE, model='km', sigma=None, xvec=None, bound=[0, 1, 0, 1, 0, 1, 0, 1, 0, 1]):
+def get_lik(concentration, reflectance, n_grid=BATCH_SIZE, model='km', sigma=None, xvec=None, bound=[0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]):
     # mcx = np.linspace(bound[0], bound[1], n_grid)
     # mcy = np.linspace(bound[2], bound[3], n_grid)
     # dmcx = mcx[1] - mcx[0]
     # dmcy = mcy[1] - mcy[0]
 
-    init_conc_array = initial_concentration.repeat(ingredients.shape[1]).reshape(5, -1)
-    print('init_conc_arrayinit_conc_arrayinit_conc_arrayinit_conc_arrayinit_conc_arrayinit_conc_arrayinit_conc_array')
-    print(init_conc_array)
+    init_conc_array = initial_concentration.repeat(ingredients.shape[1]).reshape(6, -1)
 
     diff = np.zeros(n_grid)
     if model == 'km':
@@ -115,7 +119,7 @@ def get_lik(concentration, reflectance, n_grid=BATCH_SIZE, model='km', sigma=Non
         fst = ((np.ones_like(ingredients) - ingredients) ** 2 / (ingredients * 2) - fsb) / init_conc_array
 
         for i, c in enumerate(concentration):
-            fss = c[0] * fst[0] + c[1] * fst[1] + c[2] * fst[2] + c[3] * fst[3] + c[4] * fst[4] + fsb
+            fss = c[0] * fst[0] + c[1] * fst[1] + c[2] * fst[2] + c[3] * fst[3] + c[4] * fst[4] + c[5] * fst[5] + fsb
             # diff[i, :] = np.array([np.sum(((reflectance - (p - ((p + 1) ** 2 - 1) ** 0.5 + 1)) / sigma) ** 2) for p in fss])
             diff[i] = color_diff(reflectance[i], fss - ((fss + 1) ** 2 - 1) ** 0.5 + 1)
         # diff = np.exp(-0.5 * diff)

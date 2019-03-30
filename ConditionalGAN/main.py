@@ -17,10 +17,10 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 BATCH_SIZE = 64
 LR_G = 0.0001  # learning rate for generator
 LR_D = 0.0001  # learning rate for discriminator
-N_IDEAS = 5  # think of this as number of ideas for generating work (Generator)
+N_IDEAS = 1  # think of this as number of ideas for generating work (Generator)
 KM_COMPONENTS = 15  # it could be total point G can draw in the canvas
-SOURCE_COLOR_NUM = 5
-ONE_D_N_G = 1
+SOURCE_COLOR_NUM = 6
+ONE_D_N_G = 3
 N_EPOCHS = 100
 PAINT_POINTS = np.vstack([np.linspace(-1, 1, KM_COMPONENTS) for _ in range(BATCH_SIZE)])
 TRAIN_DATA_FILE = 'colordata.txt'  # 训练数据文件的路径
@@ -64,8 +64,13 @@ def train(data_loader, model_G, model_D, criterion, opt_G, opt_D):
     G_loss = AverageMeter()
     for i, (labels, color_match) in enumerate(data_loader):
 
-        G_ideas = torch.randn(BATCH_SIZE, N_IDEAS)      # G_ideas is noise , random ideas
-        G_inputs = torch.cat((G_ideas, labels), dim=1)  # ideas with labels size is batchsize*(31+5)
+        # G_ideas = torch.randn(BATCH_SIZE, N_IDEAS)      # G_ideas is noise , random ideas
+        ideas_randn = torch.Tensor([0.2, 0.4, 0.6, 0.8, 1.0])
+        noise_index = torch.randint(0, 5, (BATCH_SIZE,))
+        cur_noise = torch.index_select(ideas_randn, 0, noise_index)
+        G_ideas = cur_noise.unsqueeze(1)
+
+        G_inputs = torch.cat((G_ideas, labels), dim=1)  # ideas with labels size is batchsize*(31+1)
 
         ###########################
         # (1) Update D network: maximize log(D(x)) + log(1 - D(G(z)))
@@ -197,8 +202,6 @@ def cal_diff(concentration, reflectance):
     # the first data -> plot
     # data -> reflectance
     # plot
-    print(concentration.shape)
-    print(reflectance.shape)
     Ngrid = BATCH_SIZE
     optical_model = "km"
     sigma = 0.2  # the noise std
@@ -222,5 +225,5 @@ def cal_diff(concentration, reflectance):
     return color_diff
 
 if __name__ == "__main__":
-    # km_works_with_labels()
+
     main()
