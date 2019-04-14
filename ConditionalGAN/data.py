@@ -3,12 +3,6 @@ import torch
 import torch.utils.data
 
 ingredients = np.array([
-    # [0.3427, 0.4346, 0.4409, 0.4418, 0.4449, 0.4509, 0.4701, 0.5372, 0.6944, 0.8247, 0.8914, 0.9259, 0.9373, 0.9418,
-    #  0.9441, 0.9462, 0.9474, 0.948, 0.9483, 0.948, 0.9484, 0.9479, 0.9475, 0.9472, 0.9468, 0.9472, 0.9465, 0.9442,
-    #  0.9423, 0.9387, 0.933],
-    # [0.2073, 0.2314, 0.2324, 0.2326, 0.2316, 0.2308, 0.23, 0.2295, 0.2283, 0.2268, 0.2266, 0.2254, 0.2244, 0.2231,
-    #  0.2221, 0.2208, 0.2202, 0.2193, 0.2183, 0.2171, 0.2163, 0.2147, 0.2133, 0.2119, 0.2107, 0.2094, 0.2086, 0.2077,
-    #  0.2035, 0.2023, 0.2005]
     # 09H
     [0.2072717, 0.2314336, 0.2323573, 0.2326192, 0.2315759, 0.2308346, 0.2299640, 0.2295049, 0.2283248, 0.2267959,
      0.2265563, 0.2253986, 0.2243909, 0.2231159, 0.2221052, 0.2208150, 0.2201522, 0.2193270, 0.2182626, 0.2170505,
@@ -56,8 +50,9 @@ optical_relevant = np.array([[0.136, 0.667, 1.644, 2.348, 3.463, 3.733, 3.065, 1
                               0.000, 0.000, 0.000, 0.000, 0.000, 0.000]])
 perfect_white = np.array([[94.83], [100.00], [107.38]])
 
-TRAIN_DATA = 100
-VALIDATE_DATA = 50
+# 1000和100
+TRAIN_DATA = 10
+VALIDATE_DATA = 2
 OPTICAL_MODEL = 'km'
 BATCH_SIZE = 64
 SIGMA = 0.2  # the noise std
@@ -83,7 +78,9 @@ def generate(tot_dataset_size, model='km', ydim=31, sigma=0.1, prior_bound=[0, 1
         fsb = (np.ones_like(background) - background) ** 2 / (background * 2)
         fst = ((np.ones_like(ingredients) - ingredients) ** 2 / (ingredients * 2) - fsb) / init_conc_array
         fss = np.array(
-            [concentrations[:, 0] * fst[0, i] + concentrations[:, 1] * fst[1, i] + concentrations[:, 2] * fst[2, i] + concentrations[:, 3] * fst[3, i] + concentrations[:, 4] * fst[4, i] + concentrations[:, 5] * fst[5, i] + np.ones(N) * fsb[i]
+            [concentrations[:, 0] * fst[0, i] + concentrations[:, 1] * fst[1, i] + concentrations[:, 2] * fst[2, i] +
+             concentrations[:, 3] * fst[3, i] + concentrations[:, 4] * fst[4, i] + concentrations[:, 5] * fst[5, i] +
+             np.ones(N) * fsb[i]
              for i in xidx])
 
         reflectance = fss - ((fss + 1) ** 2 - 1) ** 0.5 + 1
@@ -116,12 +113,16 @@ def get_lik(concentration, reflectance, n_grid=BATCH_SIZE, model='km', sigma=Non
     diff = np.zeros(n_grid)
     if model == 'km':
         fsb = (np.ones_like(background) - background) ** 2 / (background * 2)
+        # 这里有0
         fst = ((np.ones_like(ingredients) - ingredients) ** 2 / (ingredients * 2) - fsb) / init_conc_array
-
         for i, c in enumerate(concentration):
             fss = c[0] * fst[0] + c[1] * fst[1] + c[2] * fst[2] + c[3] * fst[3] + c[4] * fst[4] + c[5] * fst[5] + fsb
             # diff[i, :] = np.array([np.sum(((reflectance - (p - ((p + 1) ** 2 - 1) ** 0.5 + 1)) / sigma) ** 2) for p in fss])
-            diff[i] = color_diff(reflectance[i], fss - ((fss + 1) ** 2 - 1) ** 0.5 + 1)
+            cal_reflectance = fss - ((fss + 1) ** 2 - 1) ** 0.5 + 1
+            for j in range(len(cal_reflectance)):
+                if(cal_reflectance[j] != cal_reflectance[j]):
+                    cal_reflectance[j] = 0
+            diff[i] = color_diff(reflectance[i], cal_reflectance)
         # diff = np.exp(-0.5 * diff)
 
     elif model == 'four_flux':
@@ -192,7 +193,6 @@ def generate_train_file():
         )
         one_data = torch.cat([reflectance, concentrations], dim=1)
 
-        print(one_data.shape)
         for row in one_data:
             one_data_str = ""
             value = ''
@@ -203,7 +203,6 @@ def generate_train_file():
             print(one_data_str)
             train_data.append(one_data_str)
 
-    print(len(train_data))
     with open('colordata.txt', 'w') as f:
         for line in train_data:
             f.writelines(line + "\n")
@@ -241,6 +240,5 @@ if __name__ == "__main__":
 
     generate_train_file()
     generate_validate_file()
-
 
 

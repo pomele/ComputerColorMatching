@@ -10,16 +10,19 @@ class Generator(nn.Module):
         super(Generator, self).__init__()
         self.g = nn.Sequential(  # Generator
             nn.Linear(N_IDEAS + 31, 512),  # random ideas (could from normal distribution) + class label
+            nn.BatchNorm1d(512),
             nn.ReLU(),
             nn.Linear(512, 1024),  # random ideas (could from normal distribution) + class label
+            nn.BatchNorm1d(1024),
             nn.ReLU(),
-            nn.Linear(1024, 2048),  # random ideas (could from normal distribution) + class label
+            nn.Linear(1024, 1536),  # random ideas (could from normal distribution) + class label
+            nn.BatchNorm1d(1536),
             nn.ReLU(),
-            nn.Linear(2048, 2048),  # random ideas (could from normal distribution) + class label
-            nn.ReLU(),
-            nn.Linear(2048, 1024),  # random ideas (could from normal distribution) + class label
+            nn.Linear(1536, 1024),  # random ideas (could from normal distribution) + class label
+            nn.BatchNorm1d(1024),
             nn.ReLU(),
             nn.Linear(1024, 512),  # random ideas (could from normal distribution) + class label
+            nn.BatchNorm1d(512),
             nn.ReLU(),
             nn.Linear(512, SOURCE_COLOR_NUM)  # making a color matching from these random ideas
         )
@@ -37,15 +40,17 @@ class Discriminator(nn.Module):
     def __init__(self, SOURCE_COLOR_NUM):
         super(Discriminator, self).__init__()
         self.d = nn.Sequential(  # Discriminator
-            nn.Linear(SOURCE_COLOR_NUM + 31, 256),  # receive art work either from the K-M or a newbie like G with label
+            nn.Linear(SOURCE_COLOR_NUM + 31, 64),  # receive art work either from the K-M or a newbie like G with label
             nn.ReLU(),
-            nn.Linear(256, 512),  # receive art work either from the K-M or a newbie like G with label
+            nn.Linear(64, 64),  # receive art work either from the K-M or a newbie like G with label
             nn.ReLU(),
-            nn.Linear(512, 256),  # receive art work either from the K-M or a newbie like G with label
-            nn.ReLU(),
-            nn.Linear(256, 128),  # receive art work either from the K-M or a newbie like G with label
-            nn.ReLU(),
-            nn.Linear(128, 2)
+            # nn.Linear(96, 64),  # receive art work either from the K-M or a newbie like G with label
+            # nn.ReLU(),
+            # nn.Linear(512, 256),  # receive art work either from the K-M or a newbie like G with label
+            # nn.ReLU(),
+            # nn.Linear(96, 64),  # receive art work either from the K-M or a newbie like G with label
+            # nn.ReLU(),
+            nn.Linear(64, 2)
         )
 
     def forward(self, input_data):
