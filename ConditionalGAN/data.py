@@ -51,8 +51,8 @@ optical_relevant = np.array([[0.136, 0.667, 1.644, 2.348, 3.463, 3.733, 3.065, 1
 perfect_white = np.array([[94.83], [100.00], [107.38]])
 
 # 1000和100
-TRAIN_DATA = 10
-VALIDATE_DATA = 2
+TRAIN_DATA = 1000
+VALIDATE_DATA = 100
 OPTICAL_MODEL = 'km'
 BATCH_SIZE = 64
 SIGMA = 0.2  # the noise std
@@ -119,9 +119,10 @@ def get_lik(concentration, reflectance, n_grid=BATCH_SIZE, model='km', sigma=Non
             fss = c[0] * fst[0] + c[1] * fst[1] + c[2] * fst[2] + c[3] * fst[3] + c[4] * fst[4] + c[5] * fst[5] + fsb
             # diff[i, :] = np.array([np.sum(((reflectance - (p - ((p + 1) ** 2 - 1) ** 0.5 + 1)) / sigma) ** 2) for p in fss])
             cal_reflectance = fss - ((fss + 1) ** 2 - 1) ** 0.5 + 1
-            for j in range(len(cal_reflectance)):
-                if(cal_reflectance[j] != cal_reflectance[j]):
-                    cal_reflectance[j] = 0
+            # 产生nan
+            # for j in range(len(cal_reflectance)):
+                # if(cal_reflectance[j] != cal_reflectance[j]):
+                #     cal_reflectance[j] = 0
             diff[i] = color_diff(reflectance[i], cal_reflectance)
         # diff = np.exp(-0.5 * diff)
 

@@ -15,6 +15,7 @@ from tools.plot_figure import plot_curves
 from tools.plot_figure import plot_diff
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 # Hyper Parameters
 BATCH_SIZE = 64
@@ -24,7 +25,7 @@ N_IDEAS = 1  # think of this as number of ideas for generating work (Generator)
 KM_COMPONENTS = 15  # it could be total point G can draw in the canvas
 SOURCE_COLOR_NUM = 6
 ONE_D_N_G = 3
-N_EPOCHS = 10
+N_EPOCHS = 50
 PAINT_POINTS = np.vstack([np.linspace(-1, 1, KM_COMPONENTS) for _ in range(BATCH_SIZE)])
 TRAIN_DATA_FILE = 'colordata.txt'  # 训练数据文件的路径
 VAL_DATA_FILE = 'valcolordata.txt'  # 验证集数据文件的路径
@@ -61,21 +62,21 @@ def main():
     pretrain_G_first = True
     checkpoint_path = os.path.join(MODEL_PATH, 'pre_trained_G.pkl')
     TRAIN_G_FIRST = 2
-    best_G_loss = 1000000
+    best_epoch_diff = 1000000
     for epoch in range(N_EPOCHS):
         if epoch == 0:
             if pretrain_G_first:
                 for x in range(TRAIN_G_FIRST):
-                    pretrain_g_loss = train_G_only(data_loader=val_loader, model_G=G, mse_criterion=mse_criterion,
+                    pretrain_g_loss = train_G_only(data_loader=train_loader, model_G=G, mse_criterion=mse_criterion,
                                                    opt_G=opt_G, epoch=epoch)
-                    # 这里可以选择保存G的参数(torch.save())
-                    save_checkpoint({
-                        'epoch': x,
-                        'state_dict': G.state_dict(),
-                        'val_result': pretrain_g_loss,
-                        'optimizer': opt_G.state_dict(),
-                    }, is_best=True, checkpoint_dir=MODEL_PATH, checkpoint_name='pre_trained_G.pkl',
-                        info='save pretrained G model state')
+                # 这里可以选择保存G的参数(torch.save())
+                save_checkpoint({
+                    'epoch': x,
+                    'state_dict': G.state_dict(),
+                    'val_result': pretrain_g_loss,
+                    'optimizer': opt_G.state_dict(),
+                }, is_best=True, checkpoint_dir=MODEL_PATH, checkpoint_name='pre_trained_G.pkl',
+                    info='save pretrained G model state')
 
             elif os.path.exists(checkpoint_path):
                 checkpoint = torch.load(checkpoint_path)
@@ -100,7 +101,7 @@ def main():
             difference.append(epoch_diff)
 
             # save checkpoint when the G loss is the best
-            if val_G_loss < best_G_loss:
+            if epoch_diff < best_epoch_diff:
                 best_G_loss = min(best_G_loss, val_G_loss)
                 save_checkpoint_info = 'epoch:%d \t avg_D_fake_loss=%.3f \t avg_D_real_loss=%.3f \t avg_G_loss=%.3f' % (
                     epoch, val_D_fake_loss, val_D_real_loss, val_G_loss)
@@ -148,8 +149,6 @@ def train_G_only(data_loader, model_G, mse_criterion, opt_G, epoch):
         opt_G.step()
 
         G_loss.update(loss.item(), G_inputs.size(0))
-        # 加一些记录loss的
-        # 然后返回一个loss的平均值什么的
         print('train  train_G_only  :    ' + 'G_loss=%.3f(%.3f)' % (G_loss.val, G_loss.avg))
 
     return G_loss.avg
@@ -178,12 +177,12 @@ def train(data_loader, model_G, model_D, criterion, opt_G, opt_D, epoch):
         G_ideas = cur_noise.unsqueeze(1).to(device)
 
         G_inputs = torch.cat((G_ideas, labels), dim=1).to(device)  # ideas with labels size is batchsize*(31+1)
+        G_matching = model_G(G_inputs)  # fake from newbie w.r.t label from G
 
         ###########################
         # (1) Update D network: maximize log(D(x)) + log(1 - D(G(z)))
         ###########################
 
-        G_matching = model_G(G_inputs)  # fake from newbie w.r.t label from G
         D_inputs1 = torch.cat((torch.sigmoid(G_matching), labels), dim=1).to(device)
         prob_matching1 = model_D(D_inputs1)  # D try to reduce this prob
         fake_gt = torch.zeros(BATCH_SIZE).long().to(device)
@@ -243,14 +242,18 @@ def validate(data_loader, model_G, model_D, criterion, epoch):
         for batch_i, (labels, color_match) in enumerate(data_loader):
             labels = labels.to(device)
             color_match = color_match.to(device)
-            G_ideas = torch.randn(BATCH_SIZE, N_IDEAS).to(device)  # G_ideas is noise , random ideas
+            ideas_randn = torch.Tensor([0.2, 0.4, 0.6, 0.8, 1.0])
+            noise_index = torch.randint(0, 5, (BATCH_SIZE,))
+            cur_noise = torch.index_select(ideas_randn, 0, noise_index)
+            G_ideas = cur_noise.unsqueeze(1).to(device)
+
             G_inputs = torch.cat((G_ideas, labels), dim=1)  # ideas with labels size is batchsize*(31+5)
-
-            ###########################
-            # (1) Update D network: maximize log(D(x)) + log(1 - D(G(z)))
-            ###########################
-
             G_matching = model_G(G_inputs)  # fake from newbie w.r.t label from G
+
+            ###########################
+            # (1) validate D network: maximize log(D(x)) + log(1 - D(G(z)))
+            ###########################
+
             D_inputs1 = torch.cat((torch.sigmoid(G_matching), labels), dim=1)
             prob_matching1 = model_D(D_inputs1)  # D try to reduce this prob
             fake_gt = torch.zeros(BATCH_SIZE).long().to(device)
@@ -267,7 +270,7 @@ def validate(data_loader, model_G, model_D, criterion, epoch):
             D_real_loss.update(errD_real.item(), G_inputs.size(0))
 
             ############################
-            # (2) Update G network: maximize log(D(G(z)))
+            # (2) validate G network: maximize log(D(G(z)))
             ###########################
             prob_matching1 = model_D(D_inputs1)  # D try to reduce this prob
             err_G = criterion(prob_matching1, real_gt)
