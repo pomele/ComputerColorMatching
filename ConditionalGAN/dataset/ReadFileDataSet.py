@@ -11,7 +11,7 @@ class ReadFileDataSet(Dataset):
         with open(file_path, 'r') as f:
             for line in f.readlines():
                 target_color = [float(x) for x in line.split(",")[:31]]
-                concentrations = [float(x) for x in line.split(",")[-6:]]
+                concentrations = [float(x) for x in line.split(",")[-3:]]
 
                 target_color_tensor = torch.Tensor(target_color)
                 concentrations_tensor = torch.Tensor(concentrations)

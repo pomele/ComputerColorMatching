@@ -1,0 +1,1948 @@
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.689 	 avg_D_real_loss=0.701 	 avg_G_loss=0.698
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.689 	 avg_D_real_loss=0.701 	 avg_G_loss=0.698
+
+
+1
+epoch:1 	 avg_D_fake_loss=2.379 	 avg_D_real_loss=2.463 	 avg_G_loss=0.103
+
+
+1
+epoch:1 	 avg_D_fake_loss=2.379 	 avg_D_real_loss=2.463 	 avg_G_loss=0.103
+
+
+2
+epoch:2 	 avg_D_fake_loss=5.710 	 avg_D_real_loss=7.069 	 avg_G_loss=0.006
+
+
+2
+epoch:2 	 avg_D_fake_loss=5.710 	 avg_D_real_loss=7.069 	 avg_G_loss=0.006
+
+
+3
+epoch:3 	 avg_D_fake_loss=7.186 	 avg_D_real_loss=9.064 	 avg_G_loss=0.002
+
+
+3
+epoch:3 	 avg_D_fake_loss=7.186 	 avg_D_real_loss=9.064 	 avg_G_loss=0.002
+
+
+4
+epoch:4 	 avg_D_fake_loss=8.200 	 avg_D_real_loss=10.619 	 avg_G_loss=0.001
+
+
+4
+epoch:4 	 avg_D_fake_loss=8.200 	 avg_D_real_loss=10.619 	 avg_G_loss=0.001
+
+
+5
+epoch:5 	 avg_D_fake_loss=8.980 	 avg_D_real_loss=12.014 	 avg_G_loss=0.000
+
+
+5
+epoch:5 	 avg_D_fake_loss=8.980 	 avg_D_real_loss=12.014 	 avg_G_loss=0.000
+
+
+12
+epoch:12 	 avg_D_fake_loss=9.669 	 avg_D_real_loss=24.915 	 avg_G_loss=0.000
+
+
+12
+epoch:12 	 avg_D_fake_loss=9.669 	 avg_D_real_loss=24.915 	 avg_G_loss=0.000
+
+
+13
+epoch:13 	 avg_D_fake_loss=10.247 	 avg_D_real_loss=26.837 	 avg_G_loss=0.000
+
+
+13
+epoch:13 	 avg_D_fake_loss=10.247 	 avg_D_real_loss=26.837 	 avg_G_loss=0.000
+
+
+0
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.687 	 avg_D_real_loss=0.693 	 avg_G_loss=0.700
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.687 	 avg_D_real_loss=0.693 	 avg_G_loss=0.700
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.683 	 avg_D_real_loss=0.694 	 avg_G_loss=0.703
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.683 	 avg_D_real_loss=0.694 	 avg_G_loss=0.703
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.698 	 avg_D_real_loss=0.690 	 avg_G_loss=0.688
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.698 	 avg_D_real_loss=0.690 	 avg_G_loss=0.688
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.699 	 avg_D_real_loss=0.688 	 avg_G_loss=0.687
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.699 	 avg_D_real_loss=0.688 	 avg_G_loss=0.687
+
+
+19
+epoch:19 	 avg_D_fake_loss=0.720 	 avg_D_real_loss=0.684 	 avg_G_loss=0.667
+
+
+19
+epoch:19 	 avg_D_fake_loss=0.720 	 avg_D_real_loss=0.684 	 avg_G_loss=0.667
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.612 	 avg_D_real_loss=0.779 	 avg_G_loss=0.782
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.612 	 avg_D_real_loss=0.779 	 avg_G_loss=0.782
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.635 	 avg_D_real_loss=0.769 	 avg_G_loss=0.755
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.635 	 avg_D_real_loss=0.769 	 avg_G_loss=0.755
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.644 	 avg_D_real_loss=0.765 	 avg_G_loss=0.745
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.644 	 avg_D_real_loss=0.765 	 avg_G_loss=0.745
+
+
+20
+epoch:20 	 avg_D_fake_loss=0.711 	 avg_D_real_loss=0.655 	 avg_G_loss=0.676
+
+
+20
+epoch:20 	 avg_D_fake_loss=0.711 	 avg_D_real_loss=0.655 	 avg_G_loss=0.676
+
+
+21
+epoch:21 	 avg_D_fake_loss=0.746 	 avg_D_real_loss=0.667 	 avg_G_loss=0.643
+
+
+21
+epoch:21 	 avg_D_fake_loss=0.746 	 avg_D_real_loss=0.667 	 avg_G_loss=0.643
+
+
+22
+epoch:22 	 avg_D_fake_loss=0.795 	 avg_D_real_loss=0.668 	 avg_G_loss=0.601
+
+
+22
+epoch:22 	 avg_D_fake_loss=0.795 	 avg_D_real_loss=0.668 	 avg_G_loss=0.601
+
+
+23
+epoch:23 	 avg_D_fake_loss=0.840 	 avg_D_real_loss=0.659 	 avg_G_loss=0.565
+
+
+23
+epoch:23 	 avg_D_fake_loss=0.840 	 avg_D_real_loss=0.659 	 avg_G_loss=0.565
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.646 	 avg_D_real_loss=0.742 	 avg_G_loss=0.743
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.646 	 avg_D_real_loss=0.742 	 avg_G_loss=0.743
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.669 	 avg_D_real_loss=0.736 	 avg_G_loss=0.718
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.669 	 avg_D_real_loss=0.736 	 avg_G_loss=0.718
+
+
+6
+epoch:6 	 avg_D_fake_loss=0.670 	 avg_D_real_loss=0.711 	 avg_G_loss=0.717
+
+
+6
+epoch:6 	 avg_D_fake_loss=0.670 	 avg_D_real_loss=0.711 	 avg_G_loss=0.717
+
+
+10
+epoch:10 	 avg_D_fake_loss=0.736 	 avg_D_real_loss=0.685 	 avg_G_loss=0.652
+
+
+10
+epoch:10 	 avg_D_fake_loss=0.736 	 avg_D_real_loss=0.685 	 avg_G_loss=0.652
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.666 	 avg_D_real_loss=0.722 	 avg_G_loss=0.721
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.666 	 avg_D_real_loss=0.722 	 avg_G_loss=0.721
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.688 	 avg_D_real_loss=0.713 	 avg_G_loss=0.699
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.688 	 avg_D_real_loss=0.713 	 avg_G_loss=0.699
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.698 	 avg_D_real_loss=0.706 	 avg_G_loss=0.688
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.698 	 avg_D_real_loss=0.706 	 avg_G_loss=0.688
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.675 	 avg_D_real_loss=0.707 	 avg_G_loss=0.711
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.675 	 avg_D_real_loss=0.707 	 avg_G_loss=0.711
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.694 	 avg_D_real_loss=0.701 	 avg_G_loss=0.693
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.694 	 avg_D_real_loss=0.701 	 avg_G_loss=0.693
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.699 	 avg_D_real_loss=0.698 	 avg_G_loss=0.688
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.699 	 avg_D_real_loss=0.698 	 avg_G_loss=0.688
+
+
+7
+epoch:7 	 avg_D_fake_loss=0.702 	 avg_D_real_loss=0.692 	 avg_G_loss=0.685
+
+
+7
+epoch:7 	 avg_D_fake_loss=0.702 	 avg_D_real_loss=0.692 	 avg_G_loss=0.685
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.705 	 avg_D_real_loss=0.694 	 avg_G_loss=0.681
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.705 	 avg_D_real_loss=0.694 	 avg_G_loss=0.681
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.728 	 avg_D_real_loss=0.696 	 avg_G_loss=0.659
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.728 	 avg_D_real_loss=0.696 	 avg_G_loss=0.659
+
+
+10
+epoch:10 	 avg_D_fake_loss=0.730 	 avg_D_real_loss=0.698 	 avg_G_loss=0.657
+
+
+10
+epoch:10 	 avg_D_fake_loss=0.730 	 avg_D_real_loss=0.698 	 avg_G_loss=0.657
+
+
+25
+epoch:25 	 avg_D_fake_loss=0.740 	 avg_D_real_loss=0.672 	 avg_G_loss=0.649
+
+
+25
+epoch:25 	 avg_D_fake_loss=0.740 	 avg_D_real_loss=0.672 	 avg_G_loss=0.649
+
+
+26
+epoch:26 	 avg_D_fake_loss=0.744 	 avg_D_real_loss=0.677 	 avg_G_loss=0.645
+
+
+26
+epoch:26 	 avg_D_fake_loss=0.744 	 avg_D_real_loss=0.677 	 avg_G_loss=0.645
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.670 	 avg_D_real_loss=0.717 	 avg_G_loss=0.717
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.670 	 avg_D_real_loss=0.717 	 avg_G_loss=0.717
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.702 	 avg_D_real_loss=0.716 	 avg_G_loss=0.685
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.702 	 avg_D_real_loss=0.716 	 avg_G_loss=0.685
+
+
+22
+epoch:22 	 avg_D_fake_loss=0.721 	 avg_D_real_loss=0.655 	 avg_G_loss=0.667
+
+
+22
+epoch:22 	 avg_D_fake_loss=0.721 	 avg_D_real_loss=0.655 	 avg_G_loss=0.667
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.689 	 avg_D_real_loss=0.698 	 avg_G_loss=0.698
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.689 	 avg_D_real_loss=0.698 	 avg_G_loss=0.698
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.714 	 avg_D_real_loss=0.694 	 avg_G_loss=0.672
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.714 	 avg_D_real_loss=0.694 	 avg_G_loss=0.672
+
+
+11
+epoch:11 	 avg_D_fake_loss=0.808 	 avg_D_real_loss=0.638 	 avg_G_loss=0.590
+
+
+11
+epoch:11 	 avg_D_fake_loss=0.808 	 avg_D_real_loss=0.638 	 avg_G_loss=0.590
+
+
+12
+epoch:12 	 avg_D_fake_loss=0.820 	 avg_D_real_loss=0.640 	 avg_G_loss=0.581
+
+
+12
+epoch:12 	 avg_D_fake_loss=0.820 	 avg_D_real_loss=0.640 	 avg_G_loss=0.581
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.710 	 avg_D_real_loss=0.673 	 avg_G_loss=0.677
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.710 	 avg_D_real_loss=0.673 	 avg_G_loss=0.677
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.726 	 avg_D_real_loss=0.679 	 avg_G_loss=0.661
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.726 	 avg_D_real_loss=0.679 	 avg_G_loss=0.661
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.731 	 avg_D_real_loss=0.684 	 avg_G_loss=0.656
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.731 	 avg_D_real_loss=0.684 	 avg_G_loss=0.656
+
+
+11
+epoch:11 	 avg_D_fake_loss=0.755 	 avg_D_real_loss=0.667 	 avg_G_loss=0.635
+
+
+11
+epoch:11 	 avg_D_fake_loss=0.755 	 avg_D_real_loss=0.667 	 avg_G_loss=0.635
+
+
+31
+epoch:31 	 avg_D_fake_loss=0.762 	 avg_D_real_loss=0.658 	 avg_G_loss=0.629
+
+
+31
+epoch:31 	 avg_D_fake_loss=0.762 	 avg_D_real_loss=0.658 	 avg_G_loss=0.629
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.660 	 avg_D_real_loss=0.728 	 avg_G_loss=0.727
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.660 	 avg_D_real_loss=0.728 	 avg_G_loss=0.727
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.689 	 avg_D_real_loss=0.724 	 avg_G_loss=0.698
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.689 	 avg_D_real_loss=0.724 	 avg_G_loss=0.698
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.694 	 avg_D_real_loss=0.697 	 avg_G_loss=0.693
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.694 	 avg_D_real_loss=0.697 	 avg_G_loss=0.693
+
+
+13
+epoch:13 	 avg_D_fake_loss=0.722 	 avg_D_real_loss=0.691 	 avg_G_loss=0.665
+
+
+13
+epoch:13 	 avg_D_fake_loss=0.722 	 avg_D_real_loss=0.691 	 avg_G_loss=0.665
+
+
+14
+epoch:14 	 avg_D_fake_loss=0.724 	 avg_D_real_loss=0.691 	 avg_G_loss=0.664
+
+
+14
+epoch:14 	 avg_D_fake_loss=0.724 	 avg_D_real_loss=0.691 	 avg_G_loss=0.664
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.730 	 avg_D_real_loss=0.655 	 avg_G_loss=0.657
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.730 	 avg_D_real_loss=0.655 	 avg_G_loss=0.657
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.736 	 avg_D_real_loss=0.664 	 avg_G_loss=0.652
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.736 	 avg_D_real_loss=0.664 	 avg_G_loss=0.652
+
+
+10
+epoch:10 	 avg_D_fake_loss=0.749 	 avg_D_real_loss=0.660 	 avg_G_loss=0.640
+
+
+10
+epoch:10 	 avg_D_fake_loss=0.749 	 avg_D_real_loss=0.660 	 avg_G_loss=0.640
+
+
+11
+epoch:11 	 avg_D_fake_loss=0.751 	 avg_D_real_loss=0.663 	 avg_G_loss=0.638
+
+
+11
+epoch:11 	 avg_D_fake_loss=0.751 	 avg_D_real_loss=0.663 	 avg_G_loss=0.638
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.758 	 avg_D_real_loss=0.629 	 avg_G_loss=0.632
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.758 	 avg_D_real_loss=0.629 	 avg_G_loss=0.632
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.765 	 avg_D_real_loss=0.636 	 avg_G_loss=0.626
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.765 	 avg_D_real_loss=0.636 	 avg_G_loss=0.626
+
+
+6
+epoch:6 	 avg_D_fake_loss=0.772 	 avg_D_real_loss=0.639 	 avg_G_loss=0.620
+
+
+6
+epoch:6 	 avg_D_fake_loss=0.772 	 avg_D_real_loss=0.639 	 avg_G_loss=0.620
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.696 	 avg_D_real_loss=0.690 	 avg_G_loss=0.691
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.696 	 avg_D_real_loss=0.690 	 avg_G_loss=0.691
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.701 	 avg_D_real_loss=0.695 	 avg_G_loss=0.685
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.701 	 avg_D_real_loss=0.695 	 avg_G_loss=0.685
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.702 	 avg_D_real_loss=0.675 	 avg_G_loss=0.684
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.702 	 avg_D_real_loss=0.675 	 avg_G_loss=0.684
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.739 	 avg_D_real_loss=0.668 	 avg_G_loss=0.650
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.739 	 avg_D_real_loss=0.668 	 avg_G_loss=0.650
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.735 	 avg_D_real_loss=0.653 	 avg_G_loss=0.653
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.735 	 avg_D_real_loss=0.653 	 avg_G_loss=0.653
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.739 	 avg_D_real_loss=0.659 	 avg_G_loss=0.649
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.739 	 avg_D_real_loss=0.659 	 avg_G_loss=0.649
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.690 	 avg_D_real_loss=0.696 	 avg_G_loss=0.696
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.690 	 avg_D_real_loss=0.696 	 avg_G_loss=0.696
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.697 	 avg_D_real_loss=0.694 	 avg_G_loss=0.690
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.697 	 avg_D_real_loss=0.694 	 avg_G_loss=0.690
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.718 	 avg_D_real_loss=0.693 	 avg_G_loss=0.669
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.718 	 avg_D_real_loss=0.693 	 avg_G_loss=0.669
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.751 	 avg_D_real_loss=0.643 	 avg_G_loss=0.638
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.751 	 avg_D_real_loss=0.643 	 avg_G_loss=0.638
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.754 	 avg_D_real_loss=0.651 	 avg_G_loss=0.636
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.754 	 avg_D_real_loss=0.651 	 avg_G_loss=0.636
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.767 	 avg_D_real_loss=0.644 	 avg_G_loss=0.625
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.767 	 avg_D_real_loss=0.644 	 avg_G_loss=0.625
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.716 	 avg_D_real_loss=0.670 	 avg_G_loss=0.671
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.716 	 avg_D_real_loss=0.670 	 avg_G_loss=0.671
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.728 	 avg_D_real_loss=0.675 	 avg_G_loss=0.660
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.728 	 avg_D_real_loss=0.675 	 avg_G_loss=0.660
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.664 	 avg_D_real_loss=0.722 	 avg_G_loss=0.723
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.664 	 avg_D_real_loss=0.722 	 avg_G_loss=0.723
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.700 	 avg_D_real_loss=0.717 	 avg_G_loss=0.686
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.700 	 avg_D_real_loss=0.717 	 avg_G_loss=0.686
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.676 	 avg_D_real_loss=0.707 	 avg_G_loss=0.710
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.676 	 avg_D_real_loss=0.707 	 avg_G_loss=0.710
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.698 	 avg_D_real_loss=0.704 	 avg_G_loss=0.688
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.698 	 avg_D_real_loss=0.704 	 avg_G_loss=0.688
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.700 	 avg_D_real_loss=0.702 	 avg_G_loss=0.686
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.700 	 avg_D_real_loss=0.702 	 avg_G_loss=0.686
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.701 	 avg_D_real_loss=0.685 	 avg_G_loss=0.686
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.701 	 avg_D_real_loss=0.685 	 avg_G_loss=0.686
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.719 	 avg_D_real_loss=0.684 	 avg_G_loss=0.668
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.719 	 avg_D_real_loss=0.684 	 avg_G_loss=0.668
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.697 	 avg_D_real_loss=0.685 	 avg_G_loss=0.689
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.697 	 avg_D_real_loss=0.685 	 avg_G_loss=0.689
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.712 	 avg_D_real_loss=0.691 	 avg_G_loss=0.675
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.712 	 avg_D_real_loss=0.691 	 avg_G_loss=0.675
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.669 	 avg_D_real_loss=0.718 	 avg_G_loss=0.718
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.669 	 avg_D_real_loss=0.718 	 avg_G_loss=0.718
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.675 	 avg_D_real_loss=0.712 	 avg_G_loss=0.712
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.675 	 avg_D_real_loss=0.712 	 avg_G_loss=0.712
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.684 	 avg_D_real_loss=0.710 	 avg_G_loss=0.702
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.684 	 avg_D_real_loss=0.710 	 avg_G_loss=0.702
+
+
+3
+epoch:3 	 avg_D_fake_loss=0.684 	 avg_D_real_loss=0.706 	 avg_G_loss=0.702
+
+
+3
+epoch:3 	 avg_D_fake_loss=0.684 	 avg_D_real_loss=0.706 	 avg_G_loss=0.702
+
+
+6
+epoch:6 	 avg_D_fake_loss=0.690 	 avg_D_real_loss=0.694 	 avg_G_loss=0.696
+
+
+6
+epoch:6 	 avg_D_fake_loss=0.690 	 avg_D_real_loss=0.694 	 avg_G_loss=0.696
+
+
+7
+epoch:7 	 avg_D_fake_loss=0.704 	 avg_D_real_loss=0.696 	 avg_G_loss=0.682
+
+
+7
+epoch:7 	 avg_D_fake_loss=0.704 	 avg_D_real_loss=0.696 	 avg_G_loss=0.682
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.705 	 avg_D_real_loss=0.697 	 avg_G_loss=0.681
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.705 	 avg_D_real_loss=0.697 	 avg_G_loss=0.681
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.719 	 avg_D_real_loss=0.667 	 avg_G_loss=0.668
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.719 	 avg_D_real_loss=0.667 	 avg_G_loss=0.668
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.609 	 avg_D_real_loss=0.781 	 avg_G_loss=0.785
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.609 	 avg_D_real_loss=0.781 	 avg_G_loss=0.785
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.616 	 avg_D_real_loss=0.771 	 avg_G_loss=0.777
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.616 	 avg_D_real_loss=0.771 	 avg_G_loss=0.777
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.623 	 avg_D_real_loss=0.761 	 avg_G_loss=0.769
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.623 	 avg_D_real_loss=0.761 	 avg_G_loss=0.769
+
+
+3
+epoch:3 	 avg_D_fake_loss=0.632 	 avg_D_real_loss=0.753 	 avg_G_loss=0.759
+
+
+3
+epoch:3 	 avg_D_fake_loss=0.632 	 avg_D_real_loss=0.753 	 avg_G_loss=0.759
+
+
+4
+epoch:4 	 avg_D_fake_loss=0.644 	 avg_D_real_loss=0.745 	 avg_G_loss=0.745
+
+
+4
+epoch:4 	 avg_D_fake_loss=0.644 	 avg_D_real_loss=0.745 	 avg_G_loss=0.745
+
+
+5
+epoch:5 	 avg_D_fake_loss=0.653 	 avg_D_real_loss=0.739 	 avg_G_loss=0.735
+
+
+5
+epoch:5 	 avg_D_fake_loss=0.653 	 avg_D_real_loss=0.739 	 avg_G_loss=0.735
+
+
+6
+epoch:6 	 avg_D_fake_loss=0.659 	 avg_D_real_loss=0.733 	 avg_G_loss=0.728
+
+
+6
+epoch:6 	 avg_D_fake_loss=0.659 	 avg_D_real_loss=0.733 	 avg_G_loss=0.728
+
+
+7
+epoch:7 	 avg_D_fake_loss=0.663 	 avg_D_real_loss=0.729 	 avg_G_loss=0.725
+
+
+7
+epoch:7 	 avg_D_fake_loss=0.663 	 avg_D_real_loss=0.729 	 avg_G_loss=0.725
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.667 	 avg_D_real_loss=0.726 	 avg_G_loss=0.720
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.667 	 avg_D_real_loss=0.726 	 avg_G_loss=0.720
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.669 	 avg_D_real_loss=0.724 	 avg_G_loss=0.718
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.669 	 avg_D_real_loss=0.724 	 avg_G_loss=0.718
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.637 	 avg_D_real_loss=0.751 	 avg_G_loss=0.752
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.637 	 avg_D_real_loss=0.751 	 avg_G_loss=0.752
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.642 	 avg_D_real_loss=0.743 	 avg_G_loss=0.747
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.642 	 avg_D_real_loss=0.743 	 avg_G_loss=0.747
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.647 	 avg_D_real_loss=0.736 	 avg_G_loss=0.742
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.647 	 avg_D_real_loss=0.736 	 avg_G_loss=0.742
+
+
+3
+epoch:3 	 avg_D_fake_loss=0.654 	 avg_D_real_loss=0.728 	 avg_G_loss=0.734
+
+
+3
+epoch:3 	 avg_D_fake_loss=0.654 	 avg_D_real_loss=0.728 	 avg_G_loss=0.734
+
+
+4
+epoch:4 	 avg_D_fake_loss=0.663 	 avg_D_real_loss=0.720 	 avg_G_loss=0.724
+
+
+4
+epoch:4 	 avg_D_fake_loss=0.663 	 avg_D_real_loss=0.720 	 avg_G_loss=0.724
+
+
+5
+epoch:5 	 avg_D_fake_loss=0.671 	 avg_D_real_loss=0.714 	 avg_G_loss=0.716
+
+
+5
+epoch:5 	 avg_D_fake_loss=0.671 	 avg_D_real_loss=0.714 	 avg_G_loss=0.716
+
+
+6
+epoch:6 	 avg_D_fake_loss=0.677 	 avg_D_real_loss=0.709 	 avg_G_loss=0.709
+
+
+6
+epoch:6 	 avg_D_fake_loss=0.677 	 avg_D_real_loss=0.709 	 avg_G_loss=0.709
+
+
+7
+epoch:7 	 avg_D_fake_loss=0.681 	 avg_D_real_loss=0.705 	 avg_G_loss=0.705
+
+
+7
+epoch:7 	 avg_D_fake_loss=0.681 	 avg_D_real_loss=0.705 	 avg_G_loss=0.705
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.685 	 avg_D_real_loss=0.702 	 avg_G_loss=0.701
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.685 	 avg_D_real_loss=0.702 	 avg_G_loss=0.701
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.688 	 avg_D_real_loss=0.699 	 avg_G_loss=0.698
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.688 	 avg_D_real_loss=0.699 	 avg_G_loss=0.698
+
+
+0
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.530 	 avg_D_real_loss=0.885 	 avg_G_loss=0.888
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.530 	 avg_D_real_loss=0.885 	 avg_G_loss=0.888
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.544 	 avg_D_real_loss=0.864 	 avg_G_loss=0.868
+
+
+1
+epoch:1 	 avg_D_fake_loss=0.544 	 avg_D_real_loss=0.864 	 avg_G_loss=0.868
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.559 	 avg_D_real_loss=0.845 	 avg_G_loss=0.848
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.559 	 avg_D_real_loss=0.845 	 avg_G_loss=0.848
+
+
+3
+epoch:3 	 avg_D_fake_loss=0.574 	 avg_D_real_loss=0.828 	 avg_G_loss=0.829
+
+
+3
+epoch:3 	 avg_D_fake_loss=0.574 	 avg_D_real_loss=0.828 	 avg_G_loss=0.829
+
+
+4
+epoch:4 	 avg_D_fake_loss=0.587 	 avg_D_real_loss=0.812 	 avg_G_loss=0.812
+
+
+4
+epoch:4 	 avg_D_fake_loss=0.587 	 avg_D_real_loss=0.812 	 avg_G_loss=0.812
+
+
+5
+epoch:5 	 avg_D_fake_loss=0.599 	 avg_D_real_loss=0.798 	 avg_G_loss=0.797
+
+
+5
+epoch:5 	 avg_D_fake_loss=0.599 	 avg_D_real_loss=0.798 	 avg_G_loss=0.797
+
+
+6
+epoch:6 	 avg_D_fake_loss=0.610 	 avg_D_real_loss=0.785 	 avg_G_loss=0.784
+
+
+6
+epoch:6 	 avg_D_fake_loss=0.610 	 avg_D_real_loss=0.785 	 avg_G_loss=0.784
+
+
+7
+epoch:7 	 avg_D_fake_loss=0.622 	 avg_D_real_loss=0.774 	 avg_G_loss=0.769
+
+
+7
+epoch:7 	 avg_D_fake_loss=0.622 	 avg_D_real_loss=0.774 	 avg_G_loss=0.769
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.633 	 avg_D_real_loss=0.763 	 avg_G_loss=0.757
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.633 	 avg_D_real_loss=0.763 	 avg_G_loss=0.757
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.640 	 avg_D_real_loss=0.756 	 avg_G_loss=0.750
+
+
+9
+epoch:9 	 avg_D_fake_loss=0.640 	 avg_D_real_loss=0.756 	 avg_G_loss=0.750
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.700 	 avg_D_real_loss=0.684 	 avg_G_loss=0.686
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.700 	 avg_D_real_loss=0.684 	 avg_G_loss=0.686
+
+
+7
+epoch:7 	 avg_D_fake_loss=0.701 	 avg_D_real_loss=0.689 	 avg_G_loss=0.685
+
+
+7
+epoch:7 	 avg_D_fake_loss=0.701 	 avg_D_real_loss=0.689 	 avg_G_loss=0.685
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.703 	 avg_D_real_loss=0.687 	 avg_G_loss=0.683
+
+
+8
+epoch:8 	 avg_D_fake_loss=0.703 	 avg_D_real_loss=0.687 	 avg_G_loss=0.683
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.710 	 avg_D_real_loss=0.672 	 avg_G_loss=0.677
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.710 	 avg_D_real_loss=0.672 	 avg_G_loss=0.677
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.769 	 avg_D_real_loss=0.622 	 avg_G_loss=0.622
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.769 	 avg_D_real_loss=0.622 	 avg_G_loss=0.622
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=1.883 	 avg_D_real_loss=1.682 	 avg_G_loss=1.681
+
+
+0
+epoch:0 	 avg_D_fake_loss=1.883 	 avg_D_real_loss=1.682 	 avg_G_loss=1.681
+
+
+1
+epoch:1 	 avg_D_fake_loss=1.879 	 avg_D_real_loss=1.679 	 avg_G_loss=1.678
+
+
+1
+epoch:1 	 avg_D_fake_loss=1.879 	 avg_D_real_loss=1.679 	 avg_G_loss=1.678
+
+
+2
+epoch:2 	 avg_D_fake_loss=1.876 	 avg_D_real_loss=1.675 	 avg_G_loss=1.675
+
+
+2
+epoch:2 	 avg_D_fake_loss=1.876 	 avg_D_real_loss=1.675 	 avg_G_loss=1.675
+
+
+3
+epoch:3 	 avg_D_fake_loss=1.873 	 avg_D_real_loss=1.672 	 avg_G_loss=1.672
+
+
+3
+epoch:3 	 avg_D_fake_loss=1.873 	 avg_D_real_loss=1.672 	 avg_G_loss=1.672
+
+
+4
+epoch:4 	 avg_D_fake_loss=1.870 	 avg_D_real_loss=1.669 	 avg_G_loss=1.669
+
+
+4
+epoch:4 	 avg_D_fake_loss=1.870 	 avg_D_real_loss=1.669 	 avg_G_loss=1.669
+
+
+5
+epoch:5 	 avg_D_fake_loss=1.867 	 avg_D_real_loss=1.666 	 avg_G_loss=1.666
+
+
+5
+epoch:5 	 avg_D_fake_loss=1.867 	 avg_D_real_loss=1.666 	 avg_G_loss=1.666
+
+
+6
+epoch:6 	 avg_D_fake_loss=1.864 	 avg_D_real_loss=1.662 	 avg_G_loss=1.663
+
+
+6
+epoch:6 	 avg_D_fake_loss=1.864 	 avg_D_real_loss=1.662 	 avg_G_loss=1.663
+
+
+7
+epoch:7 	 avg_D_fake_loss=1.860 	 avg_D_real_loss=1.659 	 avg_G_loss=1.660
+
+
+7
+epoch:7 	 avg_D_fake_loss=1.860 	 avg_D_real_loss=1.659 	 avg_G_loss=1.660
+
+
+8
+epoch:8 	 avg_D_fake_loss=1.857 	 avg_D_real_loss=1.656 	 avg_G_loss=1.657
+
+
+8
+epoch:8 	 avg_D_fake_loss=1.857 	 avg_D_real_loss=1.656 	 avg_G_loss=1.657
+
+
+9
+epoch:9 	 avg_D_fake_loss=1.854 	 avg_D_real_loss=1.653 	 avg_G_loss=1.653
+
+
+9
+epoch:9 	 avg_D_fake_loss=1.854 	 avg_D_real_loss=1.653 	 avg_G_loss=1.653
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=1.879 	 avg_D_real_loss=1.680 	 avg_G_loss=1.676
+
+
+0
+epoch:0 	 avg_D_fake_loss=1.879 	 avg_D_real_loss=1.680 	 avg_G_loss=1.676
+
+
+1
+epoch:1 	 avg_D_fake_loss=1.875 	 avg_D_real_loss=1.677 	 avg_G_loss=1.673
+
+
+1
+epoch:1 	 avg_D_fake_loss=1.875 	 avg_D_real_loss=1.677 	 avg_G_loss=1.673
+
+
+2
+epoch:2 	 avg_D_fake_loss=1.871 	 avg_D_real_loss=1.673 	 avg_G_loss=1.669
+
+
+2
+epoch:2 	 avg_D_fake_loss=1.871 	 avg_D_real_loss=1.673 	 avg_G_loss=1.669
+
+
+3
+epoch:3 	 avg_D_fake_loss=1.867 	 avg_D_real_loss=1.670 	 avg_G_loss=1.665
+
+
+3
+epoch:3 	 avg_D_fake_loss=1.867 	 avg_D_real_loss=1.670 	 avg_G_loss=1.665
+
+
+4
+epoch:4 	 avg_D_fake_loss=1.863 	 avg_D_real_loss=1.666 	 avg_G_loss=1.662
+
+
+4
+epoch:4 	 avg_D_fake_loss=1.863 	 avg_D_real_loss=1.666 	 avg_G_loss=1.662
+
+
+5
+epoch:5 	 avg_D_fake_loss=1.859 	 avg_D_real_loss=1.663 	 avg_G_loss=1.658
+
+
+5
+epoch:5 	 avg_D_fake_loss=1.859 	 avg_D_real_loss=1.663 	 avg_G_loss=1.658
+
+
+6
+epoch:6 	 avg_D_fake_loss=1.856 	 avg_D_real_loss=1.659 	 avg_G_loss=1.654
+
+
+6
+epoch:6 	 avg_D_fake_loss=1.856 	 avg_D_real_loss=1.659 	 avg_G_loss=1.654
+
+
+7
+epoch:7 	 avg_D_fake_loss=1.852 	 avg_D_real_loss=1.656 	 avg_G_loss=1.650
+
+
+7
+epoch:7 	 avg_D_fake_loss=1.852 	 avg_D_real_loss=1.656 	 avg_G_loss=1.650
+
+
+8
+epoch:8 	 avg_D_fake_loss=1.848 	 avg_D_real_loss=1.653 	 avg_G_loss=1.647
+
+
+8
+epoch:8 	 avg_D_fake_loss=1.848 	 avg_D_real_loss=1.653 	 avg_G_loss=1.647
+
+
+9
+epoch:9 	 avg_D_fake_loss=1.844 	 avg_D_real_loss=1.649 	 avg_G_loss=1.642
+
+
+9
+epoch:9 	 avg_D_fake_loss=1.844 	 avg_D_real_loss=1.649 	 avg_G_loss=1.642
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=1.673 	 avg_D_real_loss=1.879 	 avg_G_loss=1.882
+
+
+0
+epoch:0 	 avg_D_fake_loss=1.673 	 avg_D_real_loss=1.879 	 avg_G_loss=1.882
+
+
+1
+epoch:1 	 avg_D_fake_loss=1.669 	 avg_D_real_loss=1.877 	 avg_G_loss=1.880
+
+
+1
+epoch:1 	 avg_D_fake_loss=1.669 	 avg_D_real_loss=1.877 	 avg_G_loss=1.880
+
+
+2
+epoch:2 	 avg_D_fake_loss=1.665 	 avg_D_real_loss=1.874 	 avg_G_loss=1.877
+
+
+2
+epoch:2 	 avg_D_fake_loss=1.665 	 avg_D_real_loss=1.874 	 avg_G_loss=1.877
+
+
+3
+epoch:3 	 avg_D_fake_loss=1.661 	 avg_D_real_loss=1.871 	 avg_G_loss=1.874
+
+
+3
+epoch:3 	 avg_D_fake_loss=1.661 	 avg_D_real_loss=1.871 	 avg_G_loss=1.874
+
+
+4
+epoch:4 	 avg_D_fake_loss=1.658 	 avg_D_real_loss=1.868 	 avg_G_loss=1.870
+
+
+4
+epoch:4 	 avg_D_fake_loss=1.658 	 avg_D_real_loss=1.868 	 avg_G_loss=1.870
+
+
+5
+epoch:5 	 avg_D_fake_loss=1.654 	 avg_D_real_loss=1.865 	 avg_G_loss=1.866
+
+
+5
+epoch:5 	 avg_D_fake_loss=1.654 	 avg_D_real_loss=1.865 	 avg_G_loss=1.866
+
+
+6
+epoch:6 	 avg_D_fake_loss=1.650 	 avg_D_real_loss=1.862 	 avg_G_loss=1.862
+
+
+6
+epoch:6 	 avg_D_fake_loss=1.650 	 avg_D_real_loss=1.862 	 avg_G_loss=1.862
+
+
+7
+epoch:7 	 avg_D_fake_loss=1.647 	 avg_D_real_loss=1.859 	 avg_G_loss=1.858
+
+
+7
+epoch:7 	 avg_D_fake_loss=1.647 	 avg_D_real_loss=1.859 	 avg_G_loss=1.858
+
+
+8
+epoch:8 	 avg_D_fake_loss=1.643 	 avg_D_real_loss=1.856 	 avg_G_loss=1.853
+
+
+8
+epoch:8 	 avg_D_fake_loss=1.643 	 avg_D_real_loss=1.856 	 avg_G_loss=1.853
+
+
+9
+epoch:9 	 avg_D_fake_loss=1.640 	 avg_D_real_loss=1.853 	 avg_G_loss=1.847
+
+
+9
+epoch:9 	 avg_D_fake_loss=1.640 	 avg_D_real_loss=1.853 	 avg_G_loss=1.847
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=1.810 	 avg_D_real_loss=1.741 	 avg_G_loss=1.746
+
+
+0
+epoch:0 	 avg_D_fake_loss=1.810 	 avg_D_real_loss=1.741 	 avg_G_loss=1.746
+
+
+1
+epoch:1 	 avg_D_fake_loss=1.806 	 avg_D_real_loss=1.738 	 avg_G_loss=1.743
+
+
+1
+epoch:1 	 avg_D_fake_loss=1.806 	 avg_D_real_loss=1.738 	 avg_G_loss=1.743
+
+
+2
+epoch:2 	 avg_D_fake_loss=1.802 	 avg_D_real_loss=1.735 	 avg_G_loss=1.740
+
+
+2
+epoch:2 	 avg_D_fake_loss=1.802 	 avg_D_real_loss=1.735 	 avg_G_loss=1.740
+
+
+3
+epoch:3 	 avg_D_fake_loss=1.799 	 avg_D_real_loss=1.732 	 avg_G_loss=1.738
+
+
+3
+epoch:3 	 avg_D_fake_loss=1.799 	 avg_D_real_loss=1.732 	 avg_G_loss=1.738
+
+
+4
+epoch:4 	 avg_D_fake_loss=1.795 	 avg_D_real_loss=1.729 	 avg_G_loss=1.735
+
+
+4
+epoch:4 	 avg_D_fake_loss=1.795 	 avg_D_real_loss=1.729 	 avg_G_loss=1.735
+
+
+5
+epoch:5 	 avg_D_fake_loss=1.792 	 avg_D_real_loss=1.725 	 avg_G_loss=1.732
+
+
+5
+epoch:5 	 avg_D_fake_loss=1.792 	 avg_D_real_loss=1.725 	 avg_G_loss=1.732
+
+
+6
+epoch:6 	 avg_D_fake_loss=1.788 	 avg_D_real_loss=1.722 	 avg_G_loss=1.728
+
+
+6
+epoch:6 	 avg_D_fake_loss=1.788 	 avg_D_real_loss=1.722 	 avg_G_loss=1.728
+
+
+7
+epoch:7 	 avg_D_fake_loss=1.785 	 avg_D_real_loss=1.719 	 avg_G_loss=1.725
+
+
+7
+epoch:7 	 avg_D_fake_loss=1.785 	 avg_D_real_loss=1.719 	 avg_G_loss=1.725
+
+
+8
+epoch:8 	 avg_D_fake_loss=1.781 	 avg_D_real_loss=1.716 	 avg_G_loss=1.721
+
+
+8
+epoch:8 	 avg_D_fake_loss=1.781 	 avg_D_real_loss=1.716 	 avg_G_loss=1.721
+
+
+9
+epoch:9 	 avg_D_fake_loss=1.778 	 avg_D_real_loss=1.713 	 avg_G_loss=1.717
+
+
+9
+epoch:9 	 avg_D_fake_loss=1.778 	 avg_D_real_loss=1.713 	 avg_G_loss=1.717
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=1.747 	 avg_D_real_loss=1.728 	 avg_G_loss=1.721
+
+
+0
+epoch:0 	 avg_D_fake_loss=1.747 	 avg_D_real_loss=1.728 	 avg_G_loss=1.721
+
+
+1
+epoch:1 	 avg_D_fake_loss=1.735 	 avg_D_real_loss=1.718 	 avg_G_loss=1.713
+
+
+1
+epoch:1 	 avg_D_fake_loss=1.735 	 avg_D_real_loss=1.718 	 avg_G_loss=1.713
+
+
+2
+epoch:2 	 avg_D_fake_loss=1.721 	 avg_D_real_loss=1.709 	 avg_G_loss=1.705
+
+
+2
+epoch:2 	 avg_D_fake_loss=1.721 	 avg_D_real_loss=1.709 	 avg_G_loss=1.705
+
+
+3
+epoch:3 	 avg_D_fake_loss=1.708 	 avg_D_real_loss=1.700 	 avg_G_loss=1.696
+
+
+3
+epoch:3 	 avg_D_fake_loss=1.708 	 avg_D_real_loss=1.700 	 avg_G_loss=1.696
+
+
+4
+epoch:4 	 avg_D_fake_loss=1.694 	 avg_D_real_loss=1.692 	 avg_G_loss=1.686
+
+
+4
+epoch:4 	 avg_D_fake_loss=1.694 	 avg_D_real_loss=1.692 	 avg_G_loss=1.686
+
+
+5
+epoch:5 	 avg_D_fake_loss=1.677 	 avg_D_real_loss=1.683 	 avg_G_loss=1.675
+
+
+5
+epoch:5 	 avg_D_fake_loss=1.677 	 avg_D_real_loss=1.683 	 avg_G_loss=1.675
+
+
+6
+epoch:6 	 avg_D_fake_loss=1.658 	 avg_D_real_loss=1.673 	 avg_G_loss=1.664
+
+
+6
+epoch:6 	 avg_D_fake_loss=1.658 	 avg_D_real_loss=1.673 	 avg_G_loss=1.664
+
+
+7
+epoch:7 	 avg_D_fake_loss=1.639 	 avg_D_real_loss=1.663 	 avg_G_loss=1.655
+
+
+7
+epoch:7 	 avg_D_fake_loss=1.639 	 avg_D_real_loss=1.663 	 avg_G_loss=1.655
+
+
+8
+epoch:8 	 avg_D_fake_loss=1.618 	 avg_D_real_loss=1.652 	 avg_G_loss=1.644
+
+
+8
+epoch:8 	 avg_D_fake_loss=1.618 	 avg_D_real_loss=1.652 	 avg_G_loss=1.644
+
+
+9
+epoch:9 	 avg_D_fake_loss=1.596 	 avg_D_real_loss=1.640 	 avg_G_loss=1.633
+
+
+9
+epoch:9 	 avg_D_fake_loss=1.596 	 avg_D_real_loss=1.640 	 avg_G_loss=1.633
+
+
+0
+save pretrained G model state
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=1.812 	 avg_D_real_loss=1.739 	 avg_G_loss=1.740
+
+
+0
+epoch:0 	 avg_D_fake_loss=1.812 	 avg_D_real_loss=1.739 	 avg_G_loss=1.740
+
+
+1
+epoch:1 	 avg_D_fake_loss=1.799 	 avg_D_real_loss=1.725 	 avg_G_loss=1.726
+
+
+1
+epoch:1 	 avg_D_fake_loss=1.799 	 avg_D_real_loss=1.725 	 avg_G_loss=1.726
+
+
+2
+epoch:2 	 avg_D_fake_loss=1.786 	 avg_D_real_loss=1.710 	 avg_G_loss=1.710
+
+
+2
+epoch:2 	 avg_D_fake_loss=1.786 	 avg_D_real_loss=1.710 	 avg_G_loss=1.710
+
+
+3
+epoch:3 	 avg_D_fake_loss=1.772 	 avg_D_real_loss=1.695 	 avg_G_loss=1.693
+
+
+3
+epoch:3 	 avg_D_fake_loss=1.772 	 avg_D_real_loss=1.695 	 avg_G_loss=1.693
+
+
+4
+epoch:4 	 avg_D_fake_loss=1.757 	 avg_D_real_loss=1.678 	 avg_G_loss=1.675
+
+
+4
+epoch:4 	 avg_D_fake_loss=1.757 	 avg_D_real_loss=1.678 	 avg_G_loss=1.675
+
+
+5
+epoch:5 	 avg_D_fake_loss=1.741 	 avg_D_real_loss=1.661 	 avg_G_loss=1.658
+
+
+5
+epoch:5 	 avg_D_fake_loss=1.741 	 avg_D_real_loss=1.661 	 avg_G_loss=1.658
+
+
+6
+epoch:6 	 avg_D_fake_loss=1.723 	 avg_D_real_loss=1.641 	 avg_G_loss=1.638
+
+
+6
+epoch:6 	 avg_D_fake_loss=1.723 	 avg_D_real_loss=1.641 	 avg_G_loss=1.638
+
+
+7
+epoch:7 	 avg_D_fake_loss=1.703 	 avg_D_real_loss=1.620 	 avg_G_loss=1.617
+
+
+7
+epoch:7 	 avg_D_fake_loss=1.703 	 avg_D_real_loss=1.620 	 avg_G_loss=1.617
+
+
+8
+epoch:8 	 avg_D_fake_loss=1.681 	 avg_D_real_loss=1.596 	 avg_G_loss=1.592
+
+
+8
+epoch:8 	 avg_D_fake_loss=1.681 	 avg_D_real_loss=1.596 	 avg_G_loss=1.592
+
+
+9
+epoch:9 	 avg_D_fake_loss=1.657 	 avg_D_real_loss=1.569 	 avg_G_loss=1.563
+
+
+9
+epoch:9 	 avg_D_fake_loss=1.657 	 avg_D_real_loss=1.569 	 avg_G_loss=1.563
+
+
+1
+save pretrained G model state
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.695 	 avg_D_real_loss=0.694 	 avg_G_loss=0.696
+
+
+0
+epoch:0 	 avg_D_fake_loss=0.695 	 avg_D_real_loss=0.694 	 avg_G_loss=0.696
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.720 	 avg_D_real_loss=0.668 	 avg_G_loss=0.668
+
+
+2
+epoch:2 	 avg_D_fake_loss=0.720 	 avg_D_real_loss=0.668 	 avg_G_loss=0.668
+
+
+4
+epoch:4 	 avg_D_fake_loss=0.719 	 avg_D_real_loss=0.668 	 avg_G_loss=0.668
+
+
+4
+epoch:4 	 avg_D_fake_loss=0.719 	 avg_D_real_loss=0.668 	 avg_G_loss=0.668
+
+

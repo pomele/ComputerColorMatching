@@ -24,7 +24,8 @@ class Generator(nn.Module):
             nn.Linear(1024, 512),  # random ideas (could from normal distribution) + class label
             nn.BatchNorm1d(512),
             nn.ReLU(),
-            nn.Linear(512, SOURCE_COLOR_NUM)  # making a color matching from these random ideas
+            nn.Linear(512, SOURCE_COLOR_NUM),
+            nn.Sigmoid()
         )
 
     def forward(self, input_data):
@@ -42,14 +43,10 @@ class Discriminator(nn.Module):
         self.d = nn.Sequential(  # Discriminator
             nn.Linear(SOURCE_COLOR_NUM + 31, 64),  # receive art work either from the K-M or a newbie like G with label
             nn.ReLU(),
-            nn.Linear(64, 64),  # receive art work either from the K-M or a newbie like G with label
+            nn.Linear(64, 128),  # receive art work either from the K-M or a newbie like G with label
             nn.ReLU(),
-            # nn.Linear(96, 64),  # receive art work either from the K-M or a newbie like G with label
-            # nn.ReLU(),
-            # nn.Linear(512, 256),  # receive art work either from the K-M or a newbie like G with label
-            # nn.ReLU(),
-            # nn.Linear(96, 64),  # receive art work either from the K-M or a newbie like G with label
-            # nn.ReLU(),
+            nn.Linear(128, 64),  # receive art work either from the K-M or a newbie like G with label
+            nn.ReLU(),
             nn.Linear(64, 6)
         )
 
