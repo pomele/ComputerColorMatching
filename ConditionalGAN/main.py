@@ -24,12 +24,12 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 # Hyper Parameters
-BATCH_SIZE = 128
+BATCH_SIZE = 64
 LR_G = 0.0001  # learning rate for generator
 LR_D = 0.0001  # learning rate for discriminator
 N_IDEAS = 1  # think of this as number of ideas for generating work (Generator)
 KM_COMPONENTS = 15  # it could be total point G can draw in the canvas
-SOURCE_COLOR_NUM = 3
+SOURCE_COLOR_NUM = 4
 ONE_D_N_G = 3
 N_EPOCHS = 100
 PAINT_POINTS = np.vstack([np.linspace(-1, 1, KM_COMPONENTS) for _ in range(BATCH_SIZE)])
@@ -100,7 +100,7 @@ def main():
                                                    loss_choose='mse',
                                                    opt_G=opt_G, epoch=epoch)
                     pretrain_G_losses.append(pretrain_g_loss)
-                    a, b, c, pretrain_val_diff = validate(data_loader=val_loader, model_G=G, model_D=D,
+                    a, b, c, pretrain_val_diff = validate(data_loader=val_t_loader, model_G=G, model_D=D,
                                                           criterion=criterion, epoch=epoch)
                     g_val_difference.append(pretrain_val_diff)
                 # 这里可以选择保存G的参数(torch.save())
@@ -193,12 +193,12 @@ def train_G_only(data_loader, model_G, criterion, loss_choose, opt_G, epoch):
     G_loss = AverageMeter()
     loss_list = []
 
-    for i, (labels, color_match) in enumerate(data_loader):
+    for i, (labels, color_match, cur_noise) in enumerate(data_loader):
         color_match = color_match.to(device)
         ideas_randn = torch.Tensor([0.2, 0.4, 0.6, 0.8, 1.0])
         noise_index = torch.randint(0, 5, (BATCH_SIZE,))
-        cur_noise = torch.index_select(ideas_randn, 0, noise_index)
-        G_ideas = cur_noise.unsqueeze(1)
+        # cur_noise = torch.index_select(ideas_randn, 0, noise_index)
+        G_ideas = cur_noise
 
         G_inputs = torch.cat((G_ideas, labels), dim=1).to(device)  # ideas with labels size is batchsize*(31+1)
         G_matching = model_G(G_inputs)  # fake from newbie w.r.t label from G
@@ -234,15 +234,15 @@ def train(data_loader, model_G, model_D, criterion, opt_G, opt_D, epoch):
         epoch, opt_G.param_groups[0]['lr'], opt_D.param_groups[0]['lr']))
 
     batch_count = len(data_loader)
-    for batch_i, (labels, color_match) in enumerate(data_loader):
+    for batch_i, (labels, color_match, cur_noise) in enumerate(data_loader):
         # G_ideas = torch.randn(BATCH_SIZE, N_IDEAS)      # G_ideas is noise , random ideas
         labels = labels.to(device)
         color_match = color_match.to(device)
         # ideas_randn = torch.Tensor([0.2, 0.4, 0.6, 0.8, 1.0])
         ideas_randn = torch.Tensor([0, 0, 0, 0, 0])
         noise_index = torch.randint(0, 5, (BATCH_SIZE,))
-        cur_noise = torch.index_select(ideas_randn, 0, noise_index)
-        G_ideas = cur_noise.unsqueeze(1).to(device)
+        # cur_noise = torch.index_select(ideas_randn, 0, noise_index)
+        G_ideas = cur_noise.to(device)
 
         G_inputs = torch.cat((G_ideas, labels), dim=1).to(device)  # ideas with labels size is batchsize*(31+1)
         G_matching = model_G(G_inputs)  # fake from newbie w.r.t label from G
@@ -308,14 +308,14 @@ def validate(data_loader, model_G, model_D, criterion, epoch):
 
     with torch.no_grad():
         batch_count = len(data_loader)
-        for batch_i, (labels, color_match) in enumerate(data_loader):
+        for batch_i, (labels, color_match, cur_noise) in enumerate(data_loader):
             labels = labels.to(device)
             color_match = color_match.to(device)
             # ideas_randn = torch.Tensor([0.2, 0.4, 0.6, 0.8, 1.0])
             ideas_randn = torch.Tensor([0, 0, 0, 0, 0])
             noise_index = torch.randint(0, 5, (BATCH_SIZE,))
-            cur_noise = torch.index_select(ideas_randn, 0, noise_index)
-            G_ideas = cur_noise.unsqueeze(1).to(device)
+            # cur_noise = torch.index_select(ideas_randn, 0, noise_index)
+            G_ideas = cur_noise.to(device)
 
             G_inputs = torch.cat((G_ideas, labels), dim=1)  # ideas with labels size is batchsize*(31+6)
             G_matching = model_G(G_inputs)  # fake from newbie w.r.t label from G
@@ -356,11 +356,14 @@ def validate(data_loader, model_G, model_D, criterion, epoch):
             D_real_epoch.append(D_real_loss.val)
             G_loss_epoch.append(G_loss.val)
 
-            # print('0000000000000000000000000000000000000000000000000000000000000000000000000000')
-            # print_log(str(color_match))
-            # print_log(str(G_matching))
-            # print('0000000000000000000000000000000000000000000000000000000000000000000000000000')
-            color_diff = cal_diff(G_matching.cpu().detach().numpy(), labels.cpu().detach().numpy())
+            print('0000000000000000000000000000000000000000000000000000000000000000000000000000')
+            print_log(str(color_match))
+            print_log(str(G_matching))
+            print_log(str(labels))
+            print_log(str(cur_noise))
+            print('0000000000000000000000000000000000000000000000000000000000000000000000000000')
+
+            color_diff = cal_diff(G_matching.cpu().detach().numpy(), labels.cpu().detach().numpy(), cur_noise.cpu().detach().numpy())
             diff_ = np.mean(color_diff)
             diff.update(diff_, BATCH_SIZE)
             print_log(str(diff))
@@ -372,7 +375,7 @@ def validate(data_loader, model_G, model_D, criterion, epoch):
     return D_fake_loss.avg, D_real_loss.avg, G_loss.avg, diff.avg
 
 
-def cal_diff(concentration, reflectance):
+def cal_diff(concentration, reflectance, noise):
     # the first data -> plot
     # data -> reflectance
     # plot
@@ -380,9 +383,12 @@ def cal_diff(concentration, reflectance):
     optical_model = "km"
     sigma = 0.2  # the noise std
     bound = [0., 1., 0., 1.]  # effect ive bound for likelihood
+    color_diff = []
 
-    color_diff = data.get_lik(concentration, reflectance, n_grid=Ngrid, model=optical_model, sigma=sigma, xvec=None,
-                              bound=bound)
+    for i, c in enumerate(concentration):
+        every_diff = data.get_lik(c, reflectance[i], noise[i], n_grid=Ngrid, model=optical_model, sigma=sigma, xvec=None,
+                                  bound=bound)
+        color_diff.append(every_diff)
     print_log('++++++++++++++++++++++色差++++++++++++++++++++++++++++++')
     print_log(str(color_diff))
     print_log('----------------------色差------------------------------')

@@ -47,7 +47,7 @@ class Discriminator(nn.Module):
             nn.ReLU(),
             nn.Linear(128, 64),  # receive art work either from the K-M or a newbie like G with label
             nn.ReLU(),
-            nn.Linear(64, 6)
+            nn.Linear(64, 2)
         )
 
     def forward(self, input_data):

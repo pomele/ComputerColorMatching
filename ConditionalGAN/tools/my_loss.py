@@ -1,7 +1,7 @@
 import numpy as np
 from torch.nn.modules import loss
 # from ..data import get_lik
-from IPython import embed
+# from IPython import embed
 import numpy as np
 import torch
 import torch.utils.data
